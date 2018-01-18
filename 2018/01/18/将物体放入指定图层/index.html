@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lsh&#39;Blog">
 <meta property="og:description" content="将符合条件的物体放入新图层，不符合的物体放入另外的图层123456789101112 framerate=25body = #(&amp;quot;boy_rig_end1:surfaceShape&amp;quot;, &amp;quot;boy_rig_end1:wheel01Shape&amp;quot;, &amp;quot;boy_rig_end1:wheel02Shape&amp;quot;, &amp;quot;boy_rig_end1:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T09:49:38.994Z">
+<meta property="og:updated_time" content="2018-01-18T16:02:32.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="将物体放入指定图层">
 <meta name="twitter:description" content="将符合条件的物体放入新图层，不符合的物体放入另外的图层123456789101112 framerate=25body = #(&amp;quot;boy_rig_end1:surfaceShape&amp;quot;, &amp;quot;boy_rig_end1:wheel01Shape&amp;quot;, &amp;quot;boy_rig_end1:wheel02Shape&amp;quot;, &amp;quot;boy_rig_end1:">
@@ -320,7 +320,8 @@
       
 
       
-        <h3 id="将符合条件的物体放入新图层，不符合的物体放入另外的图层"><a href="#将符合条件的物体放入新图层，不符合的物体放入另外的图层" class="headerlink" title="将符合条件的物体放入新图层，不符合的物体放入另外的图层"></a>将符合条件的物体放入新图层，不符合的物体放入另外的图层</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> framerate=25</span><br><span class="line"></span><br><span class="line">body = #(&quot;boy_rig_end1:surfaceShape&quot;, &quot;boy_rig_end1:wheel01Shape&quot;, &quot;boy_rig_end1:wheel02Shape&quot;, &quot;boy_rig_end1:axisShape&quot;, &quot;boy_rig_end1:coatShape&quot;, &quot;boy_rig_end1:trousersShape&quot;, &quot;boy_rig_end1:hairsShape&quot;, &quot;boy_rig_end1:Lshoe_VampShape&quot;, &quot;boy_rig_end1:Lshoe_ShoelaceShape&quot;, &quot;boy_rig_end1:Lshoe_ringShape&quot;, &quot;boy_rig_end1:Lshoe_figureShape&quot;, &quot;boy_rig_end1:Lshoe_upperShape&quot;, &quot;boy_rig_end1:Lshoe_soleShape&quot;, &quot;boy_rig_end1:Rshoe_VampShape&quot;, &quot;boy_rig_end1:Rshoe_ShoelaceShape&quot;)</span><br><span class="line"></span><br><span class="line">NL = LayerManager.newLayerFromName &quot;****小孩动作*****&quot;</span><br><span class="line">NL2 = LayerManager.newLayerFromName &quot;****随小孩导入，勿删****&quot;</span><br><span class="line">NL2.ishidden=true</span><br><span class="line"></span><br><span class="line">for b in objects do if (finditem body b.name)!=0 then NL.addNode b else NL2.addNode b</span><br><span class="line"></span><br><span class="line">------finditem 返回的值是b.name在body数组中下标，当b.name 在body中不存在时，返回值为0</span><br><span class="line">-----maxscript中只有if...then....else和 if....do... 不存在if....do....else</span><br></pre></td></tr></table></figure>
+        <p>将符合条件的物体放入新图层，不符合的物体放入另外的图层<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> framerate=25</span><br><span class="line"></span><br><span class="line">body = #(&quot;boy_rig_end1:surfaceShape&quot;, &quot;boy_rig_end1:wheel01Shape&quot;, &quot;boy_rig_end1:wheel02Shape&quot;, &quot;boy_rig_end1:axisShape&quot;, &quot;boy_rig_end1:coatShape&quot;, &quot;boy_rig_end1:trousersShape&quot;, &quot;boy_rig_end1:hairsShape&quot;, &quot;boy_rig_end1:Lshoe_VampShape&quot;, &quot;boy_rig_end1:Lshoe_ShoelaceShape&quot;, &quot;boy_rig_end1:Lshoe_ringShape&quot;, &quot;boy_rig_end1:Lshoe_figureShape&quot;, &quot;boy_rig_end1:Lshoe_upperShape&quot;, &quot;boy_rig_end1:Lshoe_soleShape&quot;, &quot;boy_rig_end1:Rshoe_VampShape&quot;, &quot;boy_rig_end1:Rshoe_ShoelaceShape&quot;)</span><br><span class="line"></span><br><span class="line">NL = LayerManager.newLayerFromName &quot;****小孩动作*****&quot;</span><br><span class="line">NL2 = LayerManager.newLayerFromName &quot;****随小孩导入，勿删****&quot;</span><br><span class="line">NL2.ishidden=true</span><br><span class="line"></span><br><span class="line">for b in objects do if (finditem body b.name)!=0 then NL.addNode b else NL2.addNode b</span><br><span class="line"></span><br><span class="line">------finditem 返回的值是b.name在body数组中下标，当b.name 在body中不存在时，返回值为0</span><br><span class="line">-----maxscript中只有if...then....else和 if....do... 不存在if....do....else</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -414,17 +415,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,7 +431,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -475,22 +467,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#将符合条件的物体放入新图层，不符合的物体放入另外的图层"><span class="nav-number">1.</span> <span class="nav-text">将符合条件的物体放入新图层，不符合的物体放入另外的图层</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
