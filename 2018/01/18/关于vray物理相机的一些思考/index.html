@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vray,camera," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近研究了一下vray物理相机，这里不具体谈相机的参数设置，而是谈谈使用过程中发现的一些有趣的问题。 最重要的一个结论是，vray相机的亮度只有max标准相机的三十分之一。也就是，如果在场景里打一个vray相机，那么场景的灯光要调亮三十倍左右。这就解答了一个长期困扰我的问题：为什么我们平时用的vraysun的亮度一般都在0.25~0.3之间，因为这个数值乘以30，大约就是1，也就是说，vraysu">
+<meta name="keywords" content="vray,camera">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于vray物理相机的一些思考">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/关于vray物理相机的一些思考/index.html">
+<meta property="og:site_name" content="Lsh&#39;Blog">
+<meta property="og:description" content="最近研究了一下vray物理相机，这里不具体谈相机的参数设置，而是谈谈使用过程中发现的一些有趣的问题。 最重要的一个结论是，vray相机的亮度只有max标准相机的三十分之一。也就是，如果在场景里打一个vray相机，那么场景的灯光要调亮三十倍左右。这就解答了一个长期困扰我的问题：为什么我们平时用的vraysun的亮度一般都在0.25~0.3之间，因为这个数值乘以30，大约就是1，也就是说，vraysu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-18T15:20:03.885Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于vray物理相机的一些思考">
+<meta name="twitter:description" content="最近研究了一下vray物理相机，这里不具体谈相机的参数设置，而是谈谈使用过程中发现的一些有趣的问题。 最重要的一个结论是，vray相机的亮度只有max标准相机的三十分之一。也就是，如果在场景里打一个vray相机，那么场景的灯光要调亮三十倍左右。这就解答了一个长期困扰我的问题：为什么我们平时用的vraysun的亮度一般都在0.25~0.3之间，因为这个数值乘以30，大约就是1，也就是说，vraysu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/18/关于vray物理相机的一些思考/"/>
+
+
+
+
+
+  <title>关于vray物理相机的一些思考 | Lsh'Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lsh'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/关于vray物理相机的一些思考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lsh'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于vray物理相机的一些思考</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T23:11:04+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近研究了一下vray物理相机，这里不具体谈相机的参数设置，而是谈谈使用过程中发现的一些有趣的问题。</p>
+<p>最重要的一个结论是，<strong>vray相机的亮度只有max标准相机的三十分之一。</strong>也就是，如果在场景里打一个vray相机，那么场景的灯光要调亮三十倍左右。这就解答了一个长期困扰我的问题：为什么我们平时用的vraysun的亮度一般都在0.25~0.3之间，因为这个数值乘以30，大约就是1，也就是说，vraysun和vray物理相机其实是配套的——你什么都不用调，他就是一个标准的灯光相机系统。这个系统可以很大程度上解决初学者用奇奇怪怪的方法打出来奇奇怪怪的光感。这是值得推荐的一点。<br><a id="more"></a><br>另外一点是，<strong>vray物理相机是完全依照真实相机的属性来安排参数的</strong>，所以才会那么复杂。这是一个显而易见的结论，每一个vray用户都知道这一点。但是，很少有人仔细思考过，为什么真实相机会有这些属性？这就需要理解一下，什么是<strong>真实相机</strong>？真实相机，面对的是真实的环境。真实的环境是不能改变的，对，就是这一点。既然现实无法改变，那么要调整画面效果，就只能从相机本身入手，所以才有快门，曝光，ios这些功能。在标准相机下，我们除了广角之外，几乎不会去动任何相机参数，我们调整的都是场景的灯光，环境，材质。这是和实际情况完全相反的操作，所以做出来的图才会有各种各样的失真。这是标准相机和vray相机最大的区别。</p>
+<hr>
+<p><strong><br>vray相机是最好的选择吗?</strong><br>是，也不是。说是，是因为从上面介绍，大家都知道了vray相机的优点，那就是真实，但是这个优点，其实也是缺点，这就像给相机带上了镣铐，把他局限在了真实的环境下。但是在三维软件中，是不存在什么真实环境的，所有的环境都是人为设置，你可以改变灯光，也可以改变材质或者环境，当然也可以改变相机，很多时候，一套标准的vray灯光相机系统根本无法满足我们的需求（这个环境渲染出来的环境色和灯光颜色饱和度一般都很低，虽然贴近真实但是并不一定是你想要的效果），我们有很东西需要调整，如果再引入一套相机系统，那将会更加复杂甚至无从下手。根据我的使用体验，vray相机的确有一些效果，但远没有质的提升，最重要的无非是景深和暗角。问题是vray的景深渲染非常慢，远不及后期处理来的划算，同样暗角效果后期处理更方便，前期加入反而限制了后期的可能性。从实用角度来说，vray相机并没有多大吸引力，所以至今行业内使用的都不多。</p>
+<p>这次研究同时也解答了另一个长期以来困扰我的问题：用vray物理相机是不是做出来的图更牛逼，更真实。答案是，关键看你牛不牛逼，和用不用它其实没什么关系。</p>
+<hr>
+<p><em>补充一点，为什么需要曝光，快门，ios这些功能：.因为显示器能显示的亮度只有0~255，远远小于人眼能接受的亮度范围，同样，相机接收的亮度范围最终也要转化到0~255这个范围内，那么就需要手动或者自动的从真实亮度中选定一个范围，这样就是这些参数存在的意义</em></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vray/" rel="tag"># vray</a>
+          
+            <a href="/tags/camera/" rel="tag"># camera</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/18/用python生成播放列表/" rel="next" title="用python生成播放列表">
+                <i class="fa fa-chevron-left"></i> 用python生成播放列表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/18/用脚本快速生成Vray边纹理材质/" rel="prev" title="用脚本快速生成Vray边纹理材质">
+                用脚本快速生成Vray边纹理材质 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lsh_python@foxmail.com</p>
+              <p class="site-description motion-element" itemprop="description">人生如逆旅，我亦是行人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsh_python@foxmail.com</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

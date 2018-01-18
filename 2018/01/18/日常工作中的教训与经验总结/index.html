@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="think," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="我将在这里持续更新一些工作过程中遇到的乱七八糟的问题和一些私货，心灵鸡胸。时常翻看，时常自省。正所谓”学而不思则罔，思而不学则殆”  1.如果看到很多建筑的墙角的话，应该增加脚线，否则建筑与地面衔接的地方会非常生硬，脚线因为材质和结构方面的差异在地与墙之间形成缓冲，减少了突兀感 2.在渲染近景的时候，可以考虑开启全局AO，这个AO不像vr脏旧材质一样给很小的值来增强边缘，它的目的是加强物体的体积感">
+<meta name="keywords" content="think">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常工作中的教训与经验总结">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/日常工作中的教训与经验总结/index.html">
+<meta property="og:site_name" content="Lsh&#39;Blog">
+<meta property="og:description" content="我将在这里持续更新一些工作过程中遇到的乱七八糟的问题和一些私货，心灵鸡胸。时常翻看，时常自省。正所谓”学而不思则罔，思而不学则殆”  1.如果看到很多建筑的墙角的话，应该增加脚线，否则建筑与地面衔接的地方会非常生硬，脚线因为材质和结构方面的差异在地与墙之间形成缓冲，减少了突兀感 2.在渲染近景的时候，可以考虑开启全局AO，这个AO不像vr脏旧材质一样给很小的值来增强边缘，它的目的是加强物体的体积感">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-18T15:54:39.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常工作中的教训与经验总结">
+<meta name="twitter:description" content="我将在这里持续更新一些工作过程中遇到的乱七八糟的问题和一些私货，心灵鸡胸。时常翻看，时常自省。正所谓”学而不思则罔，思而不学则殆”  1.如果看到很多建筑的墙角的话，应该增加脚线，否则建筑与地面衔接的地方会非常生硬，脚线因为材质和结构方面的差异在地与墙之间形成缓冲，减少了突兀感 2.在渲染近景的时候，可以考虑开启全局AO，这个AO不像vr脏旧材质一样给很小的值来增强边缘，它的目的是加强物体的体积感">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/18/日常工作中的教训与经验总结/"/>
+
+
+
+
+
+  <title>日常工作中的教训与经验总结 | Lsh'Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lsh'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/日常工作中的教训与经验总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lsh'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">日常工作中的教训与经验总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T23:45:17+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>我将在这里持续更新一些工作过程中遇到的乱七八糟的问题和一些私货，心灵鸡胸。时常翻看，时常自省。正所谓”学而不思则罔，思而不学则殆”</strong></p>
+<hr>
+<p>1.如果看到很多建筑的墙角的话，应该增加脚线，否则建筑与地面衔接的地方会非常生硬，脚线因为材质和结构方面的差异在地与墙之间形成缓冲，减少了突兀感</p>
+<p>2.在渲染近景的时候，可以考虑开启全局AO，这个AO不像vr脏旧材质一样给很小的值来增强边缘，它的目的是加强物体的体积感，值设置在0.5m~20m之间，依据实际情况调整参数。实际使用中可以解决一部分场景物体“”飘“”的问题，但是飘一般与环境光，主光有关，这只算是一个偷懒的解决方法,并非使用AO的目的。</p>
+<p>3.一张符合行业标准的图最起码要有远中近三个级别的景观，并做好主次处理，这样能让视觉自然延伸，更符合实际体验<br><a id="more"></a><br>4.建筑动画的不真实感一大原因在于限制脏旧贴图的使用，全新，纯粹，整齐的景观是反直觉的，很容易出画，因为实际原因，在主建筑方面是很少使用脏旧效果，这就需要从增加场景细节，增加小品和配景的随机变化方面着手改进画面</p>
+<p>5.玻璃的反射的质感主要与反射的物体有关，如果玻璃效果不好，首先考虑 调整被反射的部分。有一个容易忽视的物理逻辑就是：<br>摄影机与被反射物体构成的夹角被反射物体的法线平分，由此可预估物体的大体位置，快速调整反射效果，当然也可以先开纯反射找到物体，在给相应的高光模糊</p>
+<p>6.MultiMatteElement是个好东西，虽然他只能添加三个颜色通道，但好处是一个场景内可以无限次添加，特别是针对物体种类特别多的场景，一个VRayWireColor通道有时无法满足需求，而且过多的颜色会使后期抠图困难，于人于己，使用MultiMatteElement都是值得推荐。</p>
+<p>7.现在已经是2017年，无法理解还有人有公司继续排斥线性工作流，我知道有人会说类似“工具不重要，方法不重要”之类的话，但是在成为高手之前，请顺势而为。线性工作流从原理上更加符合现实和直觉，只要你的环境设置正确，导入的材质图片是什么样，渲染出来就是什么样，很少出现爆白死黑的问题，用这种方法渲染出来的暗部细节是准确的，总之你用以前工作方法能达到的效果，线性工作流做起来只会更简单，达到的效果更好，请随时更新你的技能。</p>
+<p>8.如果要单独调整某个物体的材质，复制出来一份调整后再单独赋给它，很多时候你都不知道场景里还有其他物体使用了这个材质</p>
+<p>9.反射材质的原理是，固有色决定的反射效果的暗部颜色倾向，反射颜色决定了反射效果的亮部颜色倾向，所以如果你的玻璃色彩倾向一直很差，请检查你的反射颜色是否是灰色</p>
+<p>10.做产品渲染的时候，应该在左右前后上五个方向上打光（有时底面也需要补光），而且各灯光的强度都应该不同，这样才能塑造出物体的结构。根据经验，照向物体正面的光应该是最弱的，这样左右两侧的光才能勾勒出物体的轮廓。左右两侧的光需要做强度区分，顶光一般而言是最强的，这样符合真实逻辑，而且顶光从心理学上有严肃稳定的作用</p>
+<p>11.CG工作中，没有“不可能”。项目经理想要的效果，你总能找到方法实现。</p>
+<p>12.自动保存，加存，压缩保存，重要操作前保存是任何用电脑工作的人都该养成的习惯。</p>
+<p>13.做动画项目的时候，注意前后镜头的时段，色调和灯光方向，即使是项目经理也时常会忘记检查，发现问题时往往是接近项目尾声，造成项不必要的返工和进度紧张。</p>
+<p>14.在工作中出现自己无法解决的问题，及时告知你的上级，他有更多经验和资源帮你搞定。如果你想耍小聪明蒙混过关，被人发现以后就没有人能罩着你了。</p>
+<p>15.多调整，少渲染，低参测试，区域渲染。时间应该花在调整上，而不是渲染上，谨记这一条，能帮你节省不计其数的工作量。</p>
+<p>16.审美是很主观的东西，制作人员和项目经理经常因此相互鄙视。或许对方真的是草包，但是项目经理面对的是客户和公司的评审，而不是制作人员。如果因为你的原因使得项目无法交片，那么这个锅就得你来背。</p>
+<p>16.2你可以对项目经理的决策提出建议并与之讨论，但如果他坚持，请执行他的方案。</p>
+<p>17.工作就是工作，娱乐就是娱乐。</p>
+<p>18.尊重你的同事，这一行太小，或许某天他就成了你的引路人，也可能是绊脚石，亲身经历。</p>
+<p>19.使用快捷键，如果一个快捷键帮你节省一秒，一天10次，一年就能帮你节约60个小时，尽量把常用的功能都做成按键。</p>
+<p>20.尽量使用英文界面。虽然很多软件现在都提供了官方中文，但是更多的插件脚本是不提供的，出错和无法使用是常事。</p>
+<p>21.调整模型的时候，对齐，旋转之类，请开启捕捉，眼睛看着差不多，渲染可能就天差地别。</p>
+<p>22.看到模型人员把线段开启可渲染然后当几何体用，在心里暗骂一句傻吊，这种方法看似快捷其实后患无穷。</p>
+<p>23.一张图有冷有暖会非常容易出效果，多尝试使用这个小技巧。</p>
+<p>24.技多不压身，作为渲染师，在提升自身水平的同时，精通一两款专用插件有时候会有奇效。比如粒子，毛发，布料，骨骼等等，这些都是增加收入的手段，因为只要有项目需要，那这份活就是你的，项目经理也会在预演阶段根据个人特长设置特殊镜头，增加项目闪光点，不断学习，是个人和公司双赢。</p>
+<p>24.进步最快的方法就是研究别人的场景并自己实现，研究和实现，缺一不可。</p>
+<p>25.针对重复劳动要学会偷懒，能用脚本或者插件解决的问题，尽量不要自己去实现，因为重复性劳动并不存在熟能生巧的情况。花一点时间研究一个效率插件，如果可以，学一点脚本知识。</p>
+<p>26.主体不要处在大面积的阴影里，没有光影关系，很难塑造出物体的质感和形态。</p>
+<p>27.画面切忌出现死黑爆白，人天生厌恶黑暗，而且现实中出现死黑的情况其实很少。同理，人眼也会规避曝光物体，长期观看过亮的画面会造成视觉疲劳。并且爆白和死黑的场景后期是无法还原出细节信息的，作为渲染，需要给后期留有余地。 </p>
+<p>28.如非必须，不要使用vray自带的曲线，曝光校正等调节工具。这些东西调节出来的效果，都可以通过得到调整材质灯光环境得到，作为渲染师要有丢掉后期工具的觉悟，不要总是指望后期帮你，而降低对自己的要求。</p>
+<p>29.大规模操作（比如塌陷，批量删除，复制）以后，保存一下场景，这样能清理掉内存里的撤销堆栈，积压的撤销量太大，会导致场景操作缓慢，渲染卡死等情况。</p>
+<p>30.无参考不做图。如果有什么东西是能让你保持稳定的作图水平的话，那就是找参考。除非你已经有了大量的经验，对各种类型的项目了然于胸，不然请找一个靠谱的参考图照着做，凭空想象闭门造车的结果就是进度缓慢，效果还差。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/think/" rel="tag"># think</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/18/ExtendScript编写PS脚本/" rel="next" title="ExtendScript编写PS脚本">
+                <i class="fa fa-chevron-left"></i> ExtendScript编写PS脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lsh_python@foxmail.com</p>
+              <p class="site-description motion-element" itemprop="description">人生如逆旅，我亦是行人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsh_python@foxmail.com</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
