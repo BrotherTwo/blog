@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下： 不知道哪个高人做的场景，所幸没有后缀的代理并不多，手动添加以后，在max里重新指定的时候就让人抓狂了。因为这些代理分布在一大堆图层里，比如这样： 很震惊，很蛋疼，分这么多图层跟没分有什么区别？一个场景左右眼加上各种单渲补渲加起来十来个max文件，只能用脚本解决了1234for a in Geometry do 	i">
+<meta name="description" content="发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下：">
 <meta name="keywords" content="maxscript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用脚本解决代理后缀丢失的问题">
 <meta property="og:url" content="http://yoursite.com/2018/01/19/用脚本解决代理后缀丢失的问题/index.html">
 <meta property="og:site_name" content="Lsh&#39;Blog">
-<meta property="og:description" content="发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下： 不知道哪个高人做的场景，所幸没有后缀的代理并不多，手动添加以后，在max里重新指定的时候就让人抓狂了。因为这些代理分布在一大堆图层里，比如这样： 很震惊，很蛋疼，分这么多图层跟没分有什么区别？一个场景左右眼加上各种单渲补渲加起来十来个max文件，只能用脚本解决了1234for a in Geometry do 	i">
+<meta property="og:description" content="发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/psb06.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/psb07.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/psb08.jpg">
-<meta property="og:updated_time" content="2018-01-19T15:05:20.733Z">
+<meta property="og:updated_time" content="2018-01-19T17:12:56.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用脚本解决代理后缀丢失的问题">
-<meta name="twitter:description" content="发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下： 不知道哪个高人做的场景，所幸没有后缀的代理并不多，手动添加以后，在max里重新指定的时候就让人抓狂了。因为这些代理分布在一大堆图层里，比如这样： 很震惊，很蛋疼，分这么多图层跟没分有什么区别？一个场景左右眼加上各种单渲补渲加起来十来个max文件，只能用脚本解决了1234for a in Geometry do 	i">
+<meta name="twitter:description" content="发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下：">
 <meta name="twitter:image" content="http://blog-1255960341.picsh.myqcloud.com/psb06.jpg">
 
 
@@ -324,8 +324,7 @@
       
 
       
-        <p> 发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb06.jpg" alt=""></p>
-<p>不知道哪个高人做的场景，所幸没有后缀的代理并不多，手动添加以后，在max里重新指定的时候就让人抓狂了。因为这些代理分布在一大堆图层里，比如这样：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb07.jpg" alt=""></p>
+        <p> 发网渲的时候报错，提示vray代理丢失，一看才发现原来是没有后缀，具体效果如下：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb06.jpg" alt=""><br><a id="more"></a><br>不知道哪个高人做的场景，所幸没有后缀的代理并不多，手动添加以后，在max里重新指定的时候就让人抓狂了。因为这些代理分布在一大堆图层里，比如这样：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb07.jpg" alt=""></p>
 <p>很震惊，很蛋疼，分这么多图层跟没分有什么区别？<br>一个场景左右眼加上各种单渲补渲加起来十来个max文件，只能用脚本解决了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for a in Geometry do </span><br><span class="line">	if (classof a ==VrayProxy) do</span><br><span class="line">		if ((getfilenametype a.filename)==&quot;&quot;) do</span><br><span class="line">			a.filename=a.filename+&quot;.vrmesh&quot;</span><br></pre></td></tr></table></figure></p>
 <p>一次遍历两次循环，一秒不到就改完了，执行效率不错</p>
 <p><img src="http://blog-1255960341.picsh.myqcloud.com/psb08.jpg" alt=""></p>
