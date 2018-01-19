@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/psb03.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/psb04.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/psb05.jpg">
-<meta property="og:updated_time" content="2018-01-19T14:04:02.992Z">
+<meta property="og:updated_time" content="2018-01-19T14:47:51.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一劳永逸解决Max占用CPU过高卡死的问题">
 <meta name="twitter:description" content="Max占用CPU过高卡死的问题是个非常头疼的问题，特别是大场景，很大几率会卡死。一般大家都会在渲染前关闭一两个核心，这样就能杜绝占用卡死的问题，当然，如果还是卡死那就是场景本身的问题了。这个操作有个弊端就是重启软件以后又要设置一次。今天找到一个软件叫ProcessLasso，非常强大的CPU和内存监控软件，可以时时监控占用，而且可以设置规则。下面以3DsMax为例讲解设置方法： 1.下载软件I.我">
@@ -329,7 +329,12 @@
         <p>Max占用CPU过高卡死的问题是个非常头疼的问题，特别是大场景，很大几率会卡死。一般大家都会在渲染前关闭一两个核心，这样就能杜绝占用卡死的问题，当然，如果还是卡死那就是场景本身的问题了。这个操作有个弊端就是重启软件以后又要设置一次。今天找到一个软件叫ProcessLasso，非常强大的CPU和内存监控软件，可以时时监控占用，而且可以设置规则。下面以3DsMax为例讲解设置方法：</p>
 <p>1.下载软件<br>I.我的网盘 链接：<a href="http://pan.baidu.com/s/1bpat04Z" target="_blank" rel="noopener">http://pan.baidu.com/s/1bpat04Z</a> 密码：qac5<br>II.未来软件园：<a href="http://www.orsoon.com/Soft/1711.html" target="_blank" rel="noopener">http://www.orsoon.com/Soft/1711.html</a></p>
 <p>2.打开以后是这样的：</p>
-<p><img src="http://blog-1255960341.picsh.myqcloud.com/psb01.jpg" alt=""><br><a id="more"></a><br>3.选则某个程序，右键，这里以任意一个进程为例：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb02.jpg" alt=""><br>4.为程序设置监控规则：<br> 在最后一项CPU亲和力这里取消掉一个CPU核心。<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb03.jpg" alt=""><br>以我设置的3Dmax为例，最终结果如下：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb04.jpg" alt=""><br>可以看到已经为3dsmax这个进程设置了规则。而且非常满意的一点是这个规则对所有名为3dsmax的进程都起效，不存在再开一个就不行的问题。上图中3个max进程里，两个是2014版本，一个是2016版本，都套用了规则，只要把软件设置为开机启动以后就不用再去管了，当然，也可以简单粗暴的在进程右键CPU亲和度中直接去掉一个核心（如下图），但是我还是推荐上面这张方法，虽然稍微麻烦一点，但是可控性更高，规则里有些有意思的选项，说不定什么时候就能用到，这款软件光从界面上就非常专业强大，值得研究。<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb05.jpg" alt=""><br>PS：并不能因为使用了这个软件就掉以轻心，使max卡死的情况还有很多，在进行高参渲染和关键调整前，请先保存</p>
+<p><img src="http://blog-1255960341.picsh.myqcloud.com/psb01.jpg" alt=""><br><a id="more"></a><br>3.选则某个程序，右键，这里以任意一个进程为例：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb02.jpg" alt=""></p>
+<p>4.为程序设置监控规则：<br> 在最后一项CPU亲和力这里取消掉一个CPU核心。<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb03.jpg" alt=""></p>
+<p>以我设置的3Dmax为例，最终结果如下：<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb04.jpg" alt=""></p>
+<p>可以看到已经为3dsmax这个进程设置了规则。而且非常满意的一点是这个规则对所有名为3dsmax的进程都起效，不存在再开一个就不行的问题。上图中3个max进程里，两个是2014版本，一个是2016版本，都套用了规则，只要把软件设置为开机启动以后就不用再去管了，当然，也可以简单粗暴的在进程右键CPU亲和度中直接去掉一个核心（如下图），但是我还是推荐上面这张方法，虽然稍微麻烦一点，但是可控性更高，规则里有些有意思的选项，说不定什么时候就能用到，这款软件光从界面上就非常专业强大，值得研究。</p>
+<p><img src="http://blog-1255960341.picsh.myqcloud.com/psb05.jpg" alt=""></p>
+<p>PS：并不能因为使用了这个软件就掉以轻心，使max卡死的情况还有很多，在进行高参渲染和关键调整前，请先保存</p>
 
       
     </div>
@@ -370,8 +375,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/18/日常工作中的教训与经验总结/" rel="prev" title="日常工作中的教训与经验总结">
-                日常工作中的教训与经验总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/19/使用腾讯云cos配置hexo图床/" rel="prev" title="使用腾讯云cos配置hexo图床">
+                使用腾讯云cos配置hexo图床 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -440,7 +445,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -453,7 +458,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
