@@ -447,73 +447,14 @@
 
       
         
-          
-            <p>在丝路的时候，大家用的渲染方法几乎只有一种，就是发光贴图+灯光缓存（IR+BF），后来在新公司接触到了一些渲染方法，面对不同的情形可以采用相对应的渲染方法，而不是一本道。最近看到了这篇文章，虽然以前收藏过，但是抱着收藏就等于学过的心态，错过了好多东西，这次重读，加深了对vray渲染的认识，整理到博客里，以备不时之需。</p>
-<p>关于使用Vray来进行动画渲染的方法讨论在各大论坛中都多次被反复提及，但仍有很多误区，我不打算一一列举，</p>
-<p>在这里我直接简洁明了地列出正确的渲染流水线：</p>
-<h1 id="第一大类：仅仅是摄像机运动的静态场景动画的渲染"><a href="#第一大类：仅仅是摄像机运动的静态场景动画的渲染" class="headerlink" title="第一大类：仅仅是摄像机运动的静态场景动画的渲染"></a>第一大类：仅仅是摄像机运动的静态场景动画的渲染</h1><p>type one: <code>IRmap+BruteForce(QMC)</code> 的组合：</p>
-<p>第一步（单帧调试阶段）： </p>
-<p>　　　　 调试好DMC sampler核心管理器的参数在单帧下已获得良好的质量</p>
-<p>第二步（动画前数据计算阶段，俗称跑光）：</p>
-<p>　　　　1.保持次级引擎BruteForce(QMC)开启， 勾选全局设置的Don’t Render Image以跳过不必要的渲染计算过程</p>
-<p>　　　　2.根据摄像机运动情况预估隔帧数量，使用MultiFrame increamental模式，计算完全部动画的IRmap</p>
-<p>　　　　3.打开IRmapViewer观察计算完成的IRmap采样点分布情况，将采样点不足的部分，缺失采样点的部分，通过手动补光方式叠加并补全，得到最终准备动画渲染的IRmap文件（这一环节非常重要）</p>
-<p>第三步 （渲染动画阶段）</p>
-<p>　　　　1.IRmap模式改为 from file并读入之前准备好的最终IRmap文件</p>
-<p>　　　　2.将次级引擎关闭，即设置为none（因为所有计算结果已经存入在了IRmap的每个采样点中）</p>
-<p>　　　　3.将IRmap设置中的interplation sample设置为 10-15 （最终渲染时插值采样不能过大，否则将导致闪烁）</p>
-<p>　　　　4.渲染！</p>
-<p>type two: <code>IRmap+LightCache</code></p>
-<p>第一步（单帧调试阶段）： </p>
-<p>　　　　 调试好DMC sampler核心管理器的参数在单帧下已获得良好的质量</p>
-<p>第二步（动画前数据计算阶段，俗称跑光）：</p>
-<p>　　　　1.保持次级引擎LightCache开启， 勾选全局设置的Don’t Render Image以跳过不必要的渲染计算过程</p>
-<p>　　　　2.设置LightCache模式为SingleFrame方式，并在选项中去除勾选”Store direct light”这个选项(这点非常重要，去除这个选项将极大地避免Lightcache产生的GI闪烁)</p>
-<p>　　　　3.根据摄像机运动情况预估隔帧数量，使用MultiFrame increamental模式，计算完全部动画的IRmap</p>
-<p>　　　　4.打开IRmapViewer观察计算完成的IRmap采样点分布情况，将采样点不足的部分，缺失采样点的部分，通过手动补光方式叠加并补全，得到最终准备动画渲染的IRmap文件（这一环节非常重要）</p>
-<p>第三步 （渲染动画阶段）</p>
-<p>　　　　1.IRmap模式改为 from file并读入之前准备好的最终IRmap文件</p>
-<p>　　　　2.这里分两种情况，如果场景中有大量模糊反折射需要利用lightcache来优化计算时间，可以保持次级引擎中LightCache仍旧开启，并且仍然为singleframe模式，如果不需要这样计算模糊反折射，将次级引擎关闭设置为none</p>
-<p>　　　　3.将IRmap设置中的interplation sample设置为 10-15 （最终渲染时插值采样不能过大，否则将导致闪烁）</p>
-<p>　　　　4.渲染！</p>
-<p>#第二大类：摄像机运动，物体和光源都在变化和运动#</p>
-<p>type one: <code>IRmap+BruteForce(QMC)</code></p>
-<p>第一步（单帧调试阶段）： </p>
-<p>　　　　 调试好DMC sampler核心管理器的参数在单帧下已获得良好的质量</p>
-<p>第二步（动画前数据计算阶段，俗称跑光）：</p>
-<p>　　　　1.保持次级引擎BruteForce开启， 勾选全局设置的Don’t Render Image以跳过不必要的渲染计算过程</p>
-<p>　　　　2.设置IRmap模式为Animation-prepass方式(它将生成一个IRmap序列而不是单个IRmap以对应整个动画)　　　　</p>
-<p>　　　　3.计算全部的IRmap序列</p>
-<p>第三步 （渲染动画阶段）</p>
-<p>　　　　1.IRmap模式改为Animation-render方式，并读入之前计算好的最终IRmap序列</p>
-<p>　　　　2.将次级引擎关闭，即设置为none（因为所有计算结果已经存入在了IRmap的每个采样点中）</p>
-<p>　　　　3.将IRmap设置中的interplation sample设置为 10-15 （最终渲染时插值采样不能过大，否则将导致闪烁）</p>
-<p>　　　　并且将Interpolation frames设置为1(节省渲染时间)</p>
-<p>　　　　4.渲染！</p>
-<p>type two: <code>IRmap+LightCache</code></p>
-<p>第一步（单帧调试阶段）： </p>
-<p>　　　　 调试好DMC sampler核心管理器的参数在单帧下已获得良好的质量</p>
-<p>第二步（动画前数据计算阶段，俗称跑光）：</p>
-<p>　　　　1.保持次级引擎LightCache开启， 勾选全局设置的Don’t Render Image以跳过不必要的渲染计算过程</p>
-<p>　　　　2.设置LightCache模式为SingleFrame方式，并在选项中去除勾选”Store direct light”这个选项(这点非常重要，去　　　　除这个选项将极大地避免Lightcache产生的GI闪烁)</p>
-<p>　　　　3.设置IRmap模式为Animation-prepass方式(它将生成一个IRmap序列而不是单个IRmap以对应整个动画)</p>
-<p>　　　　4.计算全部的IRmap序列</p>
-<p>第三步 （渲染动画阶段）</p>
-<p>　　　　1.IRmap模式改为Animation-render方式，并读入之前计算好的最终IRmap序列</p>
-<p>　　　　2.这里分两种情况，如果场景中有大量模糊反折射需要利用lightcache来优化计算时间，可以保持次级引擎中LightCache仍旧开启，并且仍然为singleframe模式，如果不需要这样计算模糊反折射，将次级引擎关闭设置为none</p>
-<p>　　　　3.将IRmap设置中的interplation sample设置为 10-15 （最终渲染时插值采样不能过大，否则将导致闪烁）</p>
-<p>　　　　并且将Interpolation frames设置为1(节省渲染时间)</p>
-<p>　　　　4.渲染！</p>
-<p>另外，关于渲染中经常出现一些物体有奇怪白色亮点的问题，我在这里单独说明一下，这是由于模糊反射和深度反射产生的问题，原则上是物理正常的，不是bug，也很难免，这里提供两个方法：</p>
-<p>第一，将出现白点的材质，改为VrayMaterial，并在选项中将”treat glossy rays as GI“设置为”Always”，并且确保关闭GI设置中的产生反射焦散的选项，即Reflection caustics保持关闭</p>
-<p>第二，将高亮物体（比如在反射中出现的很亮的物体，光源等）的反射深度降低，或者用OverrideMaterial将其反射通道给一个纯diffuse的材质</p>
-<p>最后提及几点很多朋友关注的问题：</p>
-<p>1.Vray渲染片树时到底该不该使用opacity通道，答案是尽量不要用opacity通道，因为Vray的IRmap计算过程不能很好的支持这一通道，将导致渲染速度非常的慢。正确的做法是把原本贴在opacity通道上的mask黑白图贴在vray材质的refraction通道里，并反转invert，然后将折射率IOR值设置为1，然后勾选”affect alpha”选项</p>
-<p>2.最安全的渲染动画的方法是什么，毫无疑问，QMC+QMC，新版本就是全部BruteForce，这种组合的情况下因为不存在插值计算GI，所以GI导致的闪烁将完全避免，但你仍需解决分布式光线数量过少所带来的噪点问题，就是说，你需要极大的代价来解决这一点。</p>
-<p>3.我永远不赞成将运动的对象和静态场景放在一起渲染，无论从影视制作的角度上来讲还是从渲染成本上来讲都不可取，有很多方法可以将两者分离再合成，这样是效率最高的。也能将问题最简化，更便于日后修改。</p>
-<p>4.关于手动补IRmap采样点的方法<br>接前面提到的，当你用Multiframe跑完光以后，远处物体的IRmap采样点细节是肯定不够的，但你如果靠增加max min rate参数来试图解决这个问题，那么你就大错特错了，其实非常简单，用一个low级别的预设，在透视图下拉近你要增加细节的物体，然后single frame方式跑一次，存成文件，然后用IRmapViewer将两个文件合并就行了，用这种方法将所有细节不够的地方补齐，又快又效率，而且有针对性，绝不要想当然地用高参数跑光就能解决问题 </p>
-
-          
+          <p>在丝路的时候，大家用的渲染方法几乎只有一种，就是发光贴图+灯光缓存（IR+BF），后来在新公司接触到了一些渲染方法，面对不同的情形可以采用相对应的渲染方法，而不是一本道。最近看到了这篇文章，虽然以前收藏过，但是抱着收藏就等于学过的心态，错过了好多东西，这次重读，加深了对vray渲染的认识，整理到博客里，以备不时之需。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/20/各种VR渲染流程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -630,14 +571,16 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>You’re a Pragmatic Programmer. You aren’t wedded to any particular technology, but you have a broad enough background in the science, and your experience with practical projects allows you to choose good solutions in particular situations. Theory and practice combine to make you strong. You adjust your approach to suit the current circumstances and environment. And you do this continuously as the work progresses. Pragmatic Programmers get the job done, and do it well.</p>
-</blockquote>
-<hr>
-<p> 这是《程序员修炼之道》的开篇，书的副标题叫<em>From Journeyman to Master</em>，从小工到大师。仔细想来，不仅是程序员，这段话扩展到其他技术行业，也完全成立。<br>我突然起刚入行那会儿，公司效果图部门空降了一个艺术总监。那时候对我这个职位的理解是很模糊的，是技术呢，还是艺术呢？具体指导哪方面的工作呢？毕竟不是一个部门，只闻其名不知其人。后来我做了一个很烂的镜头，时间仓促，来不及再改，只能交给后期的同事润色。公司的后期实力很强，很多时候能够化腐朽为神奇。但是这一次他们也没能救我。因为是和老外合作的项目，公司高层比较重视，这个艺术总监亲自上手帮我调了一版。当我看到最终效果的时候，心情很复杂。这是效果图部门的人做出来的东西，那群一直被动画鄙视，只会用素材和ps的人，其结果却超出所有人想象，无论是技术方面，还是艺术方面都令我拜服。<br>现在我终于理解这个人之所以有这样的成就，或多或少已经达到英文里所说的状态：不再局限于某一个技术体系，而是在整个学科里积累经验，凭借这些经验，可以针对特定的项目，选择合适的解决方案，不断的调整自己适应各种环境变化。而我这样的小工，只会在一套技术栈里工作，或许某天我会成为一个优秀的制作，但永远不可能达到卓越。<br>别人之所以成为大师，光眼光就比我高一截。</p>
-
-          
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/20/从小工到大师/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1132,8 +1075,6 @@
 </blockquote>
 <ol>
 <li><p>首先注册腾讯云，注册完成后完成实名认证，这一步就不上图了，网站随时在变动，按照提示进行就行</p>
-</li>
-<li><p>在产品下拉列表中搜索“万象优图”：<br><img src="http://blog-1255960341.picsh.myqcloud.com/QQ截图20180119232432.jpg" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/19/使用腾讯云cos配置hexo图床/#more" rel="contents">
@@ -1383,10 +1324,14 @@
 
       
         
-          
-            <p>桌子下面的电源线被我踢了一脚，瞬间黑屏，当时max14和16都开着，过了一会儿屏幕又亮起，但是两个max都卡死了。关掉max后再次打开就提示验证失败，需要重新输入验证码，就用注册机再次认证，可是一直显示认证失败，重启电脑后打开max直接提示验证失败，然后退出，连修复和注册界面都没有，网上查了一下，找到了解决方法如下:<br><img src="http://blog-1255960341.picsh.myqcloud.com/psb.jpg" alt=""></p>
-
-          
+          <p>桌子下面的电源线被我踢了一脚，瞬间黑屏，当时max14和16都开着，过了一会儿屏幕又亮起，但是两个max都卡死了。关掉max后再次打开就提示验证失败，需要重新输入验证码，就用注册机再次认证，可是一直显示认证失败，重启电脑后打开max直接提示验证失败，然后退出，连修复和注册界面都没有，网上查了一下，找到了解决方法如下:<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/19/Max认证失败的解决方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
