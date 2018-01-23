@@ -377,6 +377,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/一道python面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BrotherTwo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/24/一道python面试题/" itemprop="url">一道python面试题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T01:27:06+08:00">
+                2018-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在群里看到一个python面试题：</p>
+<blockquote>
+<p>盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）</p>
+</blockquote>
+<p>按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for b in range(87) :</span><br><span class="line">     for a in range(81):</span><br><span class="line">         if (25*a)+(23*b)==2000:</span><br><span class="line">             print(a,b)</span><br></pre></td></tr></table></figure></p>
+<p>这个过程总共计算了7047次</p>
+<p>仔细观察可以发现，25x+23y=2000，y只可能是5的倍数，所以得到代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bnum=[]</span><br><span class="line">for n in range(0,80,5):</span><br><span class="line">    bnum.append(n)</span><br><span class="line">print(bnum)</span><br><span class="line">for b in bnum :</span><br><span class="line">    for a in range(86):</span><br><span class="line">        if (25*a)+(23*b)==2000:</span><br><span class="line">            print(a,b)</span><br></pre></td></tr></table></figure></p>
+<p>这一次计算了1376次</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/Python2和3的兼容以及pip的安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,203 +583,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/用python爬取学习资料/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsh_python@foxmail.com">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BrotherTwo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/24/用python爬取学习资料/" itemprop="url">用python爬取学习资料</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T00:10:52+08:00">
-                2018-01-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>兴趣是最好的老师</p>
-</blockquote>
-<p>之前收藏了一篇爬取学习资料的文章，年久失修，原来的方法已经不能用了，修改了一些代码后可以正常使用，但是在爬取了400多张图片以后，程序就卡住了，时间太晚，就此打住吧。这个爬虫其实还有很多可以完善的地方，比如没有异常处理，轮子重复，输出路径不友善等等，而且也没有做延迟和代理，有时间再完善吧</p>
-<p>import requests<br>from lxml import html</p>
-<p>headers = {<br>            ‘Accept’: ‘<em>/</em>‘,<br>            ‘Accept-Language’: ‘zh-CN’,<br>            ‘Referer’: ‘<a href="http://www.mmjpg.com/" target="_blank" rel="noopener">http://www.mmjpg.com/</a>‘,<br>            ‘User-Agent’: “Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1”<br>        }</p>
-<p>def get_page_number(num):</p>
-<pre><code>#构建函数，用来查找该页内所有图片集的详细地址。目前一页包含15组套图，所以应该返回包含15个链接的序列。
-
-url = &apos;http://www.mmjpg.com/home/&apos; + num
-
-#构造每个分页的网址
-
-response = requests.get(url,headers=headers).content
-
-#调用requests库，获取二进制的相应内容。注意，这里使用.text方法的话，下面的html解析会报错，大家可以试一下。这里涉及到.content和.text的区别了。简单说，如果是处理文字、链接等内容，建议使用.text，处理视频、音频、图片等二进制内容，建议使用.content。
-
-selector = html.fromstring(response)
-
-#使用lxml.html模块构建选择器，主要功能是将二进制的服务器相应内容response转化为可读取的元素树（element tree）。lxml中就有etree模块，是构建元素树用的。如果是将html字符串转化为可读取的元素树，就建议使用lxml.html.fromstring，毕竟这几个名字应该能大致说明功能了吧。
-
-urls = []
-
-#准备容器
-
-for i in selector.xpath(&quot;//ul/li/a/@href&quot;):
-
-#利用xpath定位到所有的套图的详细地址
-
-    urls.append(i)
-
-    #遍历所有地址，添加到容器中
-
-return urls
-
-#将序列作为函数结果返回
-</code></pre><p>def get_image_title(url):</p>
-<pre><code>#现在进入到套图的详情页面了，现在要把套图的标题和图片总数提取出来
-response = requests.get(url,headers=headers).content
-selector = html.fromstring(response)
-image_title = selector.xpath(&quot;//h2/text()&quot;)[0]
-#需要注意的是，xpath返回的结果都是序列，所以需要使用[0]进行定位
-return image_title
-</code></pre><p>def get_image_amount(url):</p>
-<pre><code>#这里就相当于重复造轮子了，因为基本的代码逻辑跟上一个函数一模一样。想要简单的话就是定义一个元组，然后把获取标题、获取链接、获取图片总数的3组函数的逻辑揉在一起，最后将结果作为元组输出。不过作为新手教程，还是以简单易懂为好吧。想挑战的同学可以试试写元组模式
-response = requests.get(url,headers=headers).content
-selector = html.fromstring(response)
-image_amount = selector.xpath(&quot;//div[@class=&apos;page&apos;]/a[last()-1]/text()&quot;)[0]
-# a标签的倒数第二个区块就是图片集的最后一页，也是图片总数，所以直接取值就可以
-return image_amount
-</code></pre><p>def get_image_detail_website(url):</p>
-<pre><code>#这里还是重复造轮子。
-response = requests.get(url,headers=headers).content
-selector = html.fromstring(response)
-image_detail_websites = []
-image_amount = selector.xpath(&quot;//div[@class=&apos;page&apos;]/a[last()-1]/text()&quot;)[0]
-#这里重复构造变量，主要是为了获取图片总数。更高级的方法是使用函数间的传值，但是我忘了怎么写了，所以用了个笨办法。欢迎大家修改
-#构建图片具体地址的容器
-for i in range(int(image_amount)):
-    image_detail_link = &apos;{}/{}&apos;.format(url, i+1)
-    response = requests.get(image_detail_link,headers=headers).content
-    sel = html.fromstring(response)
-    image_download_link = sel.xpath(&quot;//div[@class=&apos;content&apos;]/a/img/@src&quot;)[0]
-    #这里是单张图片的最终下载地址
-    image_detail_websites.append(image_download_link)
-return image_detail_websites
-</code></pre><p>def download_image(image_title, image_detail_websites):</p>
-<pre><code>#将图片保存到本地。传入的两个参数是图片的标题，和下载地址序列
-num = 1
-amount = len(image_detail_websites)
-#获取图片总数
-for i in image_detail_websites:
-    filename = &apos;%s%s.jpg&apos; % (image_title, num)
-    print(&apos;正在下载图片：%s第%s/%s张，&apos; % (image_title, num, amount))
-    with open(filename, &apos;wb&apos;) as f:
-        f.write(requests.get(i,headers=headers).content)
-    num += 1
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    page_number = input(‘请输入需要爬取的页码：’)<br>    for link in get_page_number(page_number):<br>        download_image(get_image_title(link), get_image_detail_website(link))</p>
-
-          
         
       
     </div>
@@ -1622,7 +1552,7 @@ for i in image_detail_websites:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
