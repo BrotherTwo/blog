@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就却报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：">
+<meta name="description" content="之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：">
 <meta name="keywords" content="maxscript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="序列乱码的解决方法">
 <meta property="og:url" content="http://yoursite.com/2018/01/24/序列乱码的解决方法/index.html">
 <meta property="og:site_name" content="BrotherTwo">
-<meta property="og:description" content="之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就却报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：">
+<meta property="og:description" content="之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_03.jpg">
 <meta property="og:image" content="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_04.jpg">
-<meta property="og:updated_time" content="2018-01-24T14:27:44.644Z">
+<meta property="og:updated_time" content="2018-01-24T15:35:15.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="序列乱码的解决方法">
-<meta name="twitter:description" content="之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就却报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：">
+<meta name="twitter:description" content="之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：">
 <meta name="twitter:image" content="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_03.jpg">
 
 
@@ -323,7 +323,7 @@
       
 
       
-        <p> 之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就却报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：<br><a id="more"></a><br><img src="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_03.jpg" alt=""></p>
+        <p> 之前写过一个修改文件命名错误的python脚本。今天看到一些序列名字里出现乱码，用那个脚本修改就报错，文件名如下，这种错误不仅python无法处理，连ACDSee的批量改名都无法修改（直接无法打开）：<br><a id="more"></a><br><img src="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_03.jpg" alt=""></p>
 <p>可能是因为这些字符不在UTF-8里，所以无法提取出文件名。<br>在网上找到一个转换非法字符到UTF-8d 方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">non_bmp_map = dict.fromkeys(range(0x10000, sys.maxunicode + 1), 0xfffd)</span><br><span class="line"></span><br><span class="line">print(x.translate(non_bmp_map))</span><br></pre></td></tr></table></figure></p>
 <p>其中x是获取的字符。<br>这样就能强制转换非法字符。但是，转换过来的字符无法再匹配文件真实的名字，所以重命名依然出错。<br>这时我想到用正则或者异常处理，但是时间有限，我决定用maxscript来处理看看,毕竟maxscript用起来最顺手</p>
 <p><img src="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_04.jpg" alt=""></p>
@@ -439,7 +439,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -452,7 +452,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
