@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="BrotherTwo">
 <meta property="og:description" content="在群里看到一个python面试题：  盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）  按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下1234for b in range(87) :     for a in range(81):         if (25*a)+(23*b)==2000:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T17:42:39.597Z">
+<meta property="og:updated_time" content="2018-01-24T06:12:55.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一道python面试题">
 <meta name="twitter:description" content="在群里看到一个python面试题：  盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）  按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下1234for b in range(87) :     for a in range(81):         if (25*a)+(23*b)==2000:">
@@ -325,9 +325,17 @@
 <p>盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）</p>
 </blockquote>
 <p>按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for b in range(87) :</span><br><span class="line">     for a in range(81):</span><br><span class="line">         if (25*a)+(23*b)==2000:</span><br><span class="line">             print(a,b)</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>这个过程总共计算了7047次</p>
-<p>仔细观察可以发现，25x+23y=2000，y只可能是5的倍数，所以得到代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bnum=[]</span><br><span class="line">for n in range(0,80,5):</span><br><span class="line">    bnum.append(n)</span><br><span class="line">print(bnum)</span><br><span class="line">for b in bnum :</span><br><span class="line">    for a in range(86):</span><br><span class="line">        if (25*a)+(23*b)==2000:</span><br><span class="line">            print(a,b)</span><br></pre></td></tr></table></figure></p>
+<p>仔细观察可以发现，25x+23y=2000，y只可能是5的倍数，所以得到代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bnum=[]</span><br><span class="line">for n in range(0,80,5):</span><br><span class="line">    bnum.append(n)</span><br><span class="line">for b in bnum :</span><br><span class="line">    for a in range(86):</span><br><span class="line">        if (25*a)+(23*b)==2000:</span><br><span class="line">            print(a,b)</span><br></pre></td></tr></table></figure></p>
 <p>这一次计算了1376次</p>
+<p>另外观察到x与y的关系为:</p>
+<pre><code>y=25(80-x)/23
+</code></pre><p>x,y均为整数，那么<code>80-x</code>必定要是23的倍数，即可得到<br><code>80-x=23*n</code> ，其中n大于等于0，小于等于3<br>所以得到x的值为80，57，34，11，对应的y的值为0，25，50，75</p>
+<p>只不过这属于逻辑分析，在本题目的环境下已经没必要使用代码解决<br>真要使用代码的话，可以这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bnum=[]</span><br><span class="line">for n in range(0,80,5):</span><br><span class="line">    bnum.append(n)</span><br><span class="line">anum=[]</span><br><span class="line">for n in range(4):</span><br><span class="line">	anum.append(80-23n)</span><br><span class="line">for b in bnum :</span><br><span class="line">    for a in anum:</span><br><span class="line">        if (25*a)+(23*b)==2000:</span><br><span class="line">            print(a,b)</span><br></pre></td></tr></table></figure></p>
+<p>这次的计算量为64次<br>当然，优化一下的话<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">anum=[]</span><br><span class="line">for n in range(4):</span><br><span class="line">	anum.append(80-23*n)</span><br><span class="line">for a in anum:</span><br><span class="line">	print(a,(2000-25*a)/23)</span><br></pre></td></tr></table></figure></p>
+<p>计算量为8次</p>
+<p>实际上不考虑计算量而只考虑最快实现的的话，使用sympy库是最简单的</p>
 
       
     </div>
