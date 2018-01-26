@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="BrotherTwo">
 <meta property="og:description" content="转贴https://www.zhihu.com/question/21653286 想学习Python3，但是暂时又离不开Python2。在Windows上如何让它们共存呢？目前国内网站经常会让大家把其中一个python.exe改个名字，这样区分开两个可执行文件的名字，但是这样做有一个重大的隐患，就是修改了名字的那个python对应的pip将无法使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T17:21:24.917Z">
+<meta property="og:updated_time" content="2018-01-25T15:30:07.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python2和3的兼容以及pip的安装">
 <meta name="twitter:description" content="转贴https://www.zhihu.com/question/21653286 想学习Python3，但是暂时又离不开Python2。在Windows上如何让它们共存呢？目前国内网站经常会让大家把其中一个python.exe改个名字，这样区分开两个可执行文件的名字，但是这样做有一个重大的隐患，就是修改了名字的那个python对应的pip将无法使用。">
@@ -337,7 +337,9 @@
 </code></pre><h1 id="使用pip"><a href="#使用pip" class="headerlink" title="使用pip"></a>使用pip</h1><p>当Python2和Python3同时存在于windows上时，它们对应的pip都叫pip.exe，所以不能够直接使用 pip install 命令来安装软件包。而是要使用启动器py.exe来指定pip的版本。命令如下：</p>
 <pre><code>py -2 -m pip install XXXX
 </code></pre><p>-2 还是表示使用 Python2，-m pip 表示运行 pip 模块，也就是运行pip命令了。如果是为Python3安装软件，那么命令类似的变成<br>py -3 -m pip install XXXX</p>
-<p>#! python2 和 # coding: utf-8 哪个写在前面？<br>对于Python2用户还有另外一个困惑，Python2要在代码文件顶部增加一行说明，才能够在代码中使用中文。如果指明使用的Python版本也需要在文件顶部增加一行，那哪一行应该放在第一行呢？<br>#! python2 需要放在第一行，编码说明可以放在第二行。所以文件开头应该类似于：</p>
+<p>补充：有时候，使用pip死活安装不上，可以到下载库文件，解压后进入文件目录，然后使用以下代码安装：</p>
+<pre><code>python setup.py install
+</code></pre><p>#! python2 和 # coding: utf-8 哪个写在前面？<br>对于Python2用户还有另外一个困惑，Python2要在代码文件顶部增加一行说明，才能够在代码中使用中文。如果指明使用的Python版本也需要在文件顶部增加一行，那哪一行应该放在第一行呢？<br>#! python2 需要放在第一行，编码说明可以放在第二行。所以文件开头应该类似于：</p>
 <pre><code>#! python2
 # coding: utf-8
 </code></pre><p>有了这些技巧，Python2和Python3就可以愉快地在一起玩耍了～<br>Python标准：<a href="https://www.python.org/dev/peps/pep-0397/" title="PEP 397 -- Python launcher for Windows" target="_blank" rel="noopener">PEP 397 – Python launcher for Windows</a></p>
@@ -460,7 +462,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
