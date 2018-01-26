@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="明明我们在代码中已经添加了#coding=utf-8，但是为什么还是会遇到输出报错的情况呢，比如12#coding=utf-8print &amp;apos;是&amp;apos; #输出乱码 因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题 解决方法： 1.直接使">
+<meta name="description" content="明明我们在代码中已经添加了#coding=utf-8，但是为什么还是会遇到输出报错的情况呢，比如12#coding=utf-8print &amp;apos;是&amp;apos; #输出乱码 因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么添加了编码声明python还是报错">
 <meta property="og:url" content="http://yoursite.com/2018/01/26/为什么添加了编码声明python还是报错/index.html">
 <meta property="og:site_name" content="BrotherTwo">
-<meta property="og:description" content="明明我们在代码中已经添加了#coding=utf-8，但是为什么还是会遇到输出报错的情况呢，比如12#coding=utf-8print &amp;apos;是&amp;apos; #输出乱码 因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题 解决方法： 1.直接使">
+<meta property="og:description" content="明明我们在代码中已经添加了#coding=utf-8，但是为什么还是会遇到输出报错的情况呢，比如12#coding=utf-8print &amp;apos;是&amp;apos; #输出乱码 因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T15:52:22.380Z">
+<meta property="og:updated_time" content="2018-01-26T16:03:46.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么添加了编码声明python还是报错">
-<meta name="twitter:description" content="明明我们在代码中已经添加了#coding=utf-8，但是为什么还是会遇到输出报错的情况呢，比如12#coding=utf-8print &amp;apos;是&amp;apos; #输出乱码 因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题 解决方法： 1.直接使">
+<meta name="twitter:description" content="明明我们在代码中已经添加了#coding=utf-8，但是为什么还是会遇到输出报错的情况呢，比如12#coding=utf-8print &amp;apos;是&amp;apos; #输出乱码 因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题">
 
 
 
@@ -321,8 +321,7 @@
 
       
         <p>明明我们在代码中已经添加了<code>#coding=utf-8</code>，但是为什么还是会遇到输出报错的情况呢，比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#coding=utf-8</span><br><span class="line">print &apos;是&apos; #输出乱码</span><br></pre></td></tr></table></figure></p>
-<p>因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题</p>
-<p>解决方法：</p>
+<p>因为windows默认的编码方式是GBK，python文件保存时使用了utf-8,在读取时,python使用GBK的编码表去解utf-8编码的字节码，GBK与UTF-8编码不兼容，自然出现了乱码问题<br><a id="more"></a><br>解决方法：</p>
 <p>1.直接使用 <code>u&#39;是&#39;</code>形式，指明以unicode编码,解码方式会以顶部 <code>#coding</code>定义的编码方式，如果不写，以操作系统当前编码方法，建议写上<code>#coding</code>，因为要让操作系统编码和源文件编码经常会不一样。推荐使用这种方式（推荐）</p>
 <p>2.输出时指定解码方法  <code>print &#39;是&#39;.decode(&quot;utf8&quot;)</code> ，必须和保存的编码一致,忽略<code>#coding</code>的定义</p>
 <p>3.将<code>#coding</code>和保存编码改为和操作系统一样的编码，就可以直接print ‘是’ 正常输出，也不推荐，因为需要事先知道操作系统编码，复制到其他电脑上，操作系统编码不一样就会出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#coding=gbk</span><br><span class="line">print u&apos;是&apos; #方法1</span><br><span class="line">print &apos;是&apos;.decode(&quot;gbk&quot;) #方法2</span><br><span class="line">print &apos;是&apos; #方法3</span><br></pre></td></tr></table></figure></p>
