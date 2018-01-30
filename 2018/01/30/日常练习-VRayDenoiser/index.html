@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="maxscript," />
+  <meta name="keywords" content="vray,render," />
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="使用以下方法用于获取或设定激活的命令面板： setCommandPanelTaskMode [mode:]&amp;lt;panel_name&amp;gt; 将指定的命令面板设置为激活。有效 panel_name 值包括：123456#create -- Create Panel#modify -- Modify Panel #hierarchy -- Hierarchy Panel #motion -- Mo">
-<meta name="keywords" content="maxscript">
+<meta name="description" content="很早以前就看过VRayDenoiser的演示，简单来说就是一个后处理的降噪功能，最近装上了vray3.4，试用了一下，的确很强大以下是效果对比：未开启VRayDenoiser">
+<meta name="keywords" content="vray,render">
 <meta property="og:type" content="article">
-<meta property="og:title" content="切换控制面板">
-<meta property="og:url" content="http://yoursite.com/2018/01/18/切换控制面板/index.html">
+<meta property="og:title" content="日常练习-VRayDenoiser">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/日常练习-VRayDenoiser/index.html">
 <meta property="og:site_name" content="BrotherTwo">
-<meta property="og:description" content="使用以下方法用于获取或设定激活的命令面板： setCommandPanelTaskMode [mode:]&amp;lt;panel_name&amp;gt; 将指定的命令面板设置为激活。有效 panel_name 值包括：123456#create -- Create Panel#modify -- Modify Panel #hierarchy -- Hierarchy Panel #motion -- Mo">
+<meta property="og:description" content="很早以前就看过VRayDenoiser的演示，简单来说就是一个后处理的降噪功能，最近装上了vray3.4，试用了一下，的确很强大以下是效果对比：未开启VRayDenoiser">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T15:56:49.149Z">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01_noise.jpg">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01.jpg">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_final.jpg">
+<meta property="og:updated_time" content="2018-01-30T06:06:50.582Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="切换控制面板">
-<meta name="twitter:description" content="使用以下方法用于获取或设定激活的命令面板： setCommandPanelTaskMode [mode:]&amp;lt;panel_name&amp;gt; 将指定的命令面板设置为激活。有效 panel_name 值包括：123456#create -- Create Panel#modify -- Modify Panel #hierarchy -- Hierarchy Panel #motion -- Mo">
+<meta name="twitter:title" content="日常练习-VRayDenoiser">
+<meta name="twitter:description" content="很早以前就看过VRayDenoiser的演示，简单来说就是一个后处理的降噪功能，最近装上了vray3.4，试用了一下，的确很强大以下是效果对比：未开启VRayDenoiser">
+<meta name="twitter:image" content="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01_noise.jpg">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/18/切换控制面板/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/30/日常练习-VRayDenoiser/"/>
 
 
 
 
 
-  <title>切换控制面板 | BrotherTwo</title>
+  <title>日常练习-VRayDenoiser | BrotherTwo</title>
   
 
 
@@ -253,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/切换控制面板/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/日常练习-VRayDenoiser/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lsh_python@foxmail.com">
@@ -270,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">切换控制面板</h1>
+          <h1 class="post-title" itemprop="name headline">日常练习-VRayDenoiser</h1>
         
 
         <div class="post-meta">
@@ -282,8 +286,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T22:11:43+08:00">
-                2018-01-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T12:43:36+08:00">
+                2018-01-30
               </time>
             
 
@@ -320,10 +324,9 @@
       
 
       
-        <p>使用以下方法用于获取或设定激活的命令面板：</p>
-<pre><code>setCommandPanelTaskMode [mode:]&lt;panel_name&gt;
-</code></pre><p>将指定的命令面板设置为激活。有效 panel_name 值包括：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#create -- Create Panel</span><br><span class="line">#modify -- Modify Panel </span><br><span class="line">#hierarchy -- Hierarchy Panel </span><br><span class="line">#motion -- Motion Panel </span><br><span class="line">#display -- Display Panel </span><br><span class="line">#utility -- Utility Panel</span><br></pre></td></tr></table></figure></p>
-<p><code>SetCommandPanelTaskMode</code> 语法修改在3ds Max 7中，以便作为模式关键字参数，或只需给方法的参数可以指定要切换到的面板名称。<br>以下表达式相等：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setCommandPanelTaskMode #modify</span><br><span class="line">setCommandPanelTaskMode mode:#modify</span><br></pre></td></tr></table></figure></p>
+        <p>很早以前就看过VRayDenoiser的演示，简单来说就是一个后处理的降噪功能，最近装上了vray3.4，试用了一下，的确很强大<br>以下是效果对比：<br>未开启VRayDenoiser<br><img src="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01_noise.jpg" alt=""><br><a id="more"></a><br>开启VRayDenoiser<br><img src="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01.jpg" alt=""></p>
+<p>稍微拉一下曲线<br><img src="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_final.jpg" alt=""></p>
+<p>因为是针对自己的渲染器做优化，所以VRayDenoiser的效果远比一般的降噪软件要好得多，官方称其为“无损降噪”。特别是在低参数下，以前是满屏的狗牙，开启VRayDenoiser以后，用以前的测试参数得到的图像完全能达到出图参数的效果，当然细节方面损失的比较厉害。这个功能在电脑配置较低或者场景细节较少的时候非常有效，用极低的成本得到较高质量的图像。<br>通过上面的图片可以看出，开启VRayDenoiser以后，虽然画面的噪点消失了，但是沙发和黑色橱柜上的凹凸细节也减弱了很多，毕竟这是后处理。所幸vray新版本中为我们提供了VRayNoiseLevel通道，这个通道保留了画面的噪点，对于效果图来说，可以有选择的添加凹凸产生的的噪点，以增加细节，但是对于动画就很困难了，另外我并没有测试VRayDenoiser在动画序列中的效果，可以想象这个功能可以极大的降低画面闪烁，但是会不会出现更大块闪烁还需要继续测试</p>
 
       
     </div>
@@ -341,7 +344,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/maxscript/" rel="tag"># maxscript</a>
+            <a href="/tags/vray/" rel="tag"># vray</a>
+          
+            <a href="/tags/render/" rel="tag"># render</a>
           
         </div>
       
@@ -354,8 +359,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/18/清除空图层/" rel="next" title="清除空图层">
-                <i class="fa fa-chevron-left"></i> 清除空图层
+              <a href="/2018/01/26/为什么添加了编码声明python还是报错/" rel="next" title="为什么添加了编码声明python还是报错">
+                <i class="fa fa-chevron-left"></i> 为什么添加了编码声明python还是报错
               </a>
             
           </div>
@@ -364,8 +369,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/18/获取Vray属性/" rel="prev" title="获取Vray属性">
-                获取Vray属性 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/18/日常工作中的教训与经验总结/" rel="prev" title="日常工作中的教训与经验总结">
+                日常工作中的教训与经验总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
