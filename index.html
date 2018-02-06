@@ -447,7 +447,7 @@
 
       
         
-          <p>之前在github用hexo创建了个人博客，因为brothertwo.github.io这个域名比较长，所以在腾讯云买了一个域名，域名的购买不用过多介绍，这里讲一下如何绑定域名<br>登陆腾讯云后，进入<code>我的域名</code>&gt;<code>域名解析</code>目录，系统会自动生成一条叫<code>_dnsauth</code>的主机记录，不用管它，点击<code>新手快速添加</code>按钮，然后输入<code>192.30.252.153</code>这是GitHub的地址，你也可以ping你的 <a href="http://xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a> 的ip地址，填入进去。<br>
+          <p>之前在github用hexo创建了个人博客，因为brothertwo.github.io这个域名比较长，所以在腾讯云买了一个域名，域名的购买不用过多介绍，这里讲一下如何绑定域名<br>登陆腾讯云后，进入<code>我的域名</code>&gt;<code>域名解析</code>目录，系统会自动生成一条叫<code>_dnsauth</code>的主机记录，不用管它，点击<code>添加纪录</code>按钮，主机记录选择<code>@</code>，记录类型为A,线路默认即可，记录值输入<code>192.30.252.153</code>这是GitHub的地址，然后保存，继续添加记录，和上面的一样，只不过这次的记录值是<code>192.30.252.154</code>，最后再添加一条记录，这条记录的主机记录为<code>WWW</code>，记录类型为CNAME，线路类型为默认，记录值为你的用户名.github.io<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/06/hexo-github在腾讯云配置域名的总结/#more" rel="contents">
@@ -708,9 +708,8 @@
 
       
         
-          <p>markdown语法的出现是为了简化网页排版，所以几乎所有的md编辑器都提供保存为网页的功能，但是html to markdown的方法却鲜有人提供。最近正好有这个需求，在github上果然发现这样一个工具:<a href="https://github.com/gaojiuli/tomd" target="_blank" rel="noopener">tomd</a></p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><pre><code>pip install tomd
-</code></pre>
+          <p>几乎所有的md编辑器都提供保存为网页的功能，但是html to markdown的方法却鲜有人提供。最近正好有这个需求，在github上果然发现这样一个工具:<a href="https://github.com/gaojiuli/tomd" target="_blank" rel="noopener">tomd</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tomd</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/02/03/HTML文件转Markdown/#more" rel="contents">
@@ -1221,7 +1220,7 @@
           <blockquote>
 <p>兴趣是最好的老师</p>
 </blockquote>
-<p>之前收藏了一篇爬取学习资料的文章，年久失修,官方已经做了屏蔽，修改了一些代码后可以正常使用，但是在爬取400多张图片后程序就卡住了，应该还是被官方限制了。时间太晚，就此打住。这个爬虫其实还有很多可以完善的地方，比如没有异常处理，轮子重复，输出路径不友善等等，也没有做延迟和代理，有时间继续完善吧<br>以下为部分成果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第40/45张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第41/45张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第42/45张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第43/45张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第44/45张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第45/45张，</span><br><span class="line">正在下载图片：肤白貌美的邻家妹妹波涛汹涌呼之欲出第1/46张，</span><br><span class="line">正在下载图片：肤白貌美的邻家妹妹波涛汹涌呼之欲出第2/46张，</span><br><span class="line">正在下载图片：肤白貌美的邻家妹妹波涛汹涌呼之欲出第3/46张，</span><br></pre></td></tr></table></figure></p>
+<p>之前收藏了一篇爬取学习资料的文章，年久失修,官方已经做了屏蔽，修改了一些代码后可以正常使用，但是在爬取400多张图片后程序就卡住了，应该还是被官方限制了。时间太晚，就此打住。这个爬虫其实还有很多可以完善的地方，比如没有异常处理，轮子重复，输出路径不友善等等，也没有做延迟和代理，有时间继续完善吧<br>以下为部分成果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第<span class="number">40</span>/<span class="number">45</span>张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第<span class="number">41</span>/<span class="number">45</span>张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第<span class="number">42</span>/<span class="number">45</span>张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第<span class="number">43</span>/<span class="number">45</span>张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第<span class="number">44</span>/<span class="number">45</span>张，</span><br><span class="line">正在下载图片：气质美女唐琪儿制服写真极致美臀诱惑第<span class="number">45</span>/<span class="number">45</span>张，</span><br><span class="line">正在下载图片：肤白貌美的邻家妹妹波涛汹涌呼之欲出第<span class="number">1</span>/<span class="number">46</span>张，</span><br><span class="line">正在下载图片：肤白貌美的邻家妹妹波涛汹涌呼之欲出第<span class="number">2</span>/<span class="number">46</span>张，</span><br><span class="line">正在下载图片：肤白貌美的邻家妹妹波涛汹涌呼之欲出第<span class="number">3</span>/<span class="number">46</span>张，</span><br></pre></td></tr></table></figure></p>
 <p>以下为代码：<br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1346,11 +1345,9 @@
 
       
         
-          <p>以前帮同事写过一个小脚本，随机给配楼添加漫反射颜色，后来发现因为gamma的问题，生成的材质普遍偏灰，懒得再改设定好的rgb值，就想从对比度（saturation）入手，看能不能直接调整，也找到了获取HSV的方法：</p>
-<pre><code>$.material.diffusecolor.saturation
-</code></pre><p>或者</p>
-<pre><code>$.material.diffusecolor.s
-</code></pre><p>问题是居然不能修改值？这就很闹心了。我想max应该是以rgb为标准颜色系统，hsv只是拾色器中方便调整的一个辅助系统，并不被脚本支持，要改变颜色还是要从rgb入手，这就需要一个rgb与hsv转换的函数。查找资料后，得到转换公式:<br><img src="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_10.jpg" alt=""><br>以下为maxscript脚本方法</p>
+          <p>以前帮同事写过一个小脚本，随机给配楼添加漫反射颜色，后来发现因为gamma的问题，生成的材质普遍偏灰，懒得再改设定好的rgb值，就想从对比度（saturation）入手，看能不能直接调整，也找到了获取HSV的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.material.diffusecolor.saturation</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.material.diffusecolor.s</span><br></pre></td></tr></table></figure></p>
+<p>问题是居然不能修改值？这就很闹心了。我想max应该是以rgb为标准颜色系统，hsv只是拾色器中方便调整的一个辅助系统，并不被脚本支持，要改变颜色还是要从rgb入手，这就需要一个rgb与hsv转换的函数。查找资料后，得到转换公式:<br><img src="https://blog-1255960341.cos.ap-shanghai.myqcloud.com/20180124_10.jpg" alt=""><br>以下为maxscript脚本方法</p>
 <p><em>补充：最近看到老外的解决方法，修改point3的值曲线救国，更为简单，这并不代表之前是做无用功，从底层实现能够加深对功能的理解，老外的脚本放在文章最后</em><br>
           <!--noindex-->
           <div class="post-button text-center">
