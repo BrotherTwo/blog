@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01_noise.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_final.jpg">
-<meta property="og:updated_time" content="2018-02-01T10:30:03.823Z">
+<meta property="og:updated_time" content="2018-03-09T16:59:41.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常练习-VRayDenoiser">
 <meta name="twitter:description" content="很早以前就看过VRayDenoiser的演示，简单来说就是一个后处理的降噪功能，最近装上了vray3.4，试用了一下，的确很强大以下是效果对比：未开启VRayDenoiser">
@@ -318,7 +318,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  805
+                  925
                 </span>
               
 
@@ -356,10 +356,10 @@
 
       
         <p>很早以前就看过VRayDenoiser的演示，简单来说就是一个后处理的降噪功能，最近装上了vray3.4，试用了一下，的确很强大<br>以下是效果对比：<br>未开启VRayDenoiser<br><img src="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01_noise.jpg" alt=""><br><a id="more"></a><br>开启VRayDenoiser<br><img src="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_01.jpg" alt=""></p>
-<p>稍微拉一下曲线<br><img src="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_final.jpg" alt=""></p>
+<p>稍微调整一下<br><img src="http://blog-1255960341.picsh.myqcloud.com/室内练习1030_final.jpg" alt=""></p>
 <p>因为是针对自己的渲染器做优化，所以VRayDenoiser的效果远比一般的降噪软件要好得多，官方称其为“无损降噪”。特别是在低参数下，以前是满屏的狗牙，开启VRayDenoiser以后，用以前的测试参数得到的图像完全能达到出图参数的效果，当然细节方面损失的比较厉害。这个功能在电脑配置较低或者场景细节较少的时候非常有效，用极低的成本得到较高质量的图像。<br>通过上面的图片可以看出，开启VRayDenoiser以后，虽然画面的噪点消失了，但是沙发和黑色橱柜上的凹凸细节也减弱了很多，毕竟这是后处理。所幸vray新版本中为我们提供了VRayNoiseLevel通道，这个通道保留了画面的噪点，对于效果图来说，可以有选择的添加凹凸产生的的噪点，以增加细节，但是对于动画就很困难了，另外我并没有测试VRayDenoiser在动画序列中的效果，可以想象这个功能可以极大的降低画面闪烁，但是会不会出现更大块闪烁还需要继续测试</p>
 <hr>
-<p>后续测试：<br>参考了官方教学视频</p>
+<p>后续测试：<br>参考了官方教学视频（自备电梯）</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3RVXm8cbjn0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <p>官方解释了为什么VRayDenoiser被称为“无损降噪”：</p>
@@ -373,6 +373,7 @@
 <p>官方视频中，达到相同的效果，未开启降噪使用了43分钟，开启降噪以后只需要9分钟。渲染时间节省了将近80%，相当可观。</p>
 <p>最后官方提到了在动画中的运用：<br>基本原理是根据前后帧之间的差异进行降噪，这样可以最大限度降低画面闪烁</p>
 <p>具体操作过程如下：<br>首先，不开启降噪，低参数渲染动画，得到完整的序列帧，包括所有需要的通道，图像的格式必须为EXR或者VR，这些格式可以包含物体的所以通道元素。<br>然后，打开vray降噪器，这个工具是独立的，它在vray安装目录下的Tools文件夹内，名为“Denoiser tool”<br>双击打开后，会显示一些帮助文件，在命令行输入<code>vdenoise -inputFile=&quot;&quot;</code><br>接着把鼠标光标放在两个引号之间，找到序列目录，选中序列第一个文件，拖入命令行窗口，得到了目录路径，比如<code>vdenoise -inputFile=&quot;C:\csseq\cs_0000.vrimg&quot;</code><br>最后，将序列后缀的0000删除，替换为????，比如<code>vdenoise -inputFile=&quot;C:\csseq\cs_????.vrimg&quot;</code><br>回车后，工具即可处理序列帧</p>
+<p>20180310补充：看到消息vray已经有了4.0测试版，其中一项内容是提供全通道降噪，不知道有没有提供更简单的动画降噪，因为手上没有测试版本，所以还有待观察，但是这个功能的确是令人眼前一亮，在渲染算法已经没有可能出现大的提升的情况下，通过后期算法加快渲染也不失为一种办法</p>
 
       
     </div>
@@ -485,7 +486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
