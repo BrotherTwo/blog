@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在公众号上看到的一篇文章，使用爬虫框架以后，很少关注这些原生工具的使用技巧，总结的很全面，收藏学习">
+<meta name="description" content="框架虽好，基础不能丢">
 <meta name="keywords" content="python,spider">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python爬虫的技巧总结">
 <meta property="og:url" content="http://yoursite.com/2018/02/20/Python爬虫的技巧总结/index.html">
-<meta property="og:site_name" content="BrotherTwo">
-<meta property="og:description" content="在公众号上看到的一篇文章，使用爬虫框架以后，很少关注这些原生工具的使用技巧，总结的很全面，收藏学习">
+<meta property="og:site_name" content="BRO2">
+<meta property="og:description" content="框架虽好，基础不能丢">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-20T15:36:54.199Z">
+<meta property="og:updated_time" content="2018-02-27T11:41:05.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python爬虫的技巧总结">
-<meta name="twitter:description" content="在公众号上看到的一篇文章，使用爬虫框架以后，很少关注这些原生工具的使用技巧，总结的很全面，收藏学习">
+<meta name="twitter:description" content="框架虽好，基础不能丢">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Python爬虫的技巧总结 | BrotherTwo</title>
+  <title>Python爬虫的技巧总结 | BRO2</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">BrotherTwo</span>
+        <span class="site-title">BRO2</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -262,7 +262,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BrotherTwo">
+      <meta itemprop="name" content="BRO2">
     </span>
 
     
@@ -314,7 +314,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,463
+                  3,427
                 </span>
               
 
@@ -351,7 +351,7 @@
       
 
       
-        <p>在公众号上看到的一篇文章，使用爬虫框架以后，很少关注这些原生工具的使用技巧，总结的很全面，收藏学习<br><a id="more"></a></p>
+        <p>框架虽好，基础不能丢<br><a id="more"></a></p>
 <h3 id="1-最基本的抓站"><a href="#1-最基本的抓站" class="headerlink" title="1.最基本的抓站"></a>1.最基本的抓站</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">content = urllib2.urlopen(<span class="string">'http://XXXX'</span>).read()</span><br></pre></td></tr></table></figure>
 <h3 id="2-使用代理服务器"><a href="#2-使用代理服务器" class="headerlink" title="2.使用代理服务器"></a>2.使用代理服务器</h3><p>这在某些情况下比较有用，比如IP被封了，或者比如IP访问的次数受到限制等等。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line">proxy_support = urllib2.ProxyHandler(&#123;<span class="string">'http'</span>:<span class="string">'http://XX.XX.XX.XX:XXXX'</span>&#125;)</span><br><span class="line">opener = urllib2.build_opener(proxy_support, urllib2.HTTPHandler)</span><br><span class="line">urllib2.install_opener(opener)</span><br><span class="line">content = urllib2.urlopen(<span class="string">'http://XXXX'</span>).read()</span><br></pre></td></tr></table></figure>
@@ -438,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/10/各种快捷键总汇/" rel="prev" title="各种快捷键总汇">
-                各种快捷键总汇 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/22/软件跑到界面外的解决方法/" rel="prev" title="软件跑到界面外的解决方法">
+                软件跑到界面外的解决方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,7 +517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -530,7 +530,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
