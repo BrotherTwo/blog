@@ -252,6 +252,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/用脚本快速生成Vray边纹理材质/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BRO2">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/18/用脚本快速生成Vray边纹理材质/" itemprop="url">用脚本快速生成Vray边纹理材质</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T23:20:51+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  145
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用脚本生成材质，1是快速，2是能够标准化<br> 这里以生成Vray边纹理材质为例，脚本中做了兼容性处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">fn edgestex =</span><br><span class="line">(</span><br><span class="line">    vr = renderers.current</span><br><span class="line">    case of</span><br><span class="line">    (</span><br><span class="line">        (vr材质 != undefined) : (mat = vr材质())</span><br><span class="line">        (vr_材质 != undefined) : (mat = vr_材质())</span><br><span class="line">        (VRayMtl != undefined) : (mat = VRayMtl())</span><br><span class="line">    )</span><br><span class="line">    mat</span><br><span class="line">    mat.diffuse = color 255 255 255</span><br><span class="line">    case of</span><br><span class="line">    (</span><br><span class="line">        (VR边纹理 != undefined):(mat.texmap_diffuse = VR边纹理())</span><br><span class="line">        (VR_边纹理 != undefined):(mat.texmap_diffuse = VR_边纹理())</span><br><span class="line">        (VRayEdgesTex != undefined):(mat.texmap_diffuse = VRayEdgesTex())</span><br><span class="line">    )</span><br><span class="line">    mat.texmap_diffuse.pixelWidth = 0.5</span><br><span class="line">    mat.texmap_diffuse.edgesColor = color 0 0 0</span><br><span class="line">    vr.options_overrideMtl_on = true</span><br><span class="line">    vr.options_overrideMtl_mtl = mat</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/关于vray物理相机的一些思考/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1348,7 +1499,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/18/日常练习-宇航员02/" itemprop="url">日常练习-宇航员02</a></h1>
+                <a class="post-title-link" href="/2018/01/18/日常练习-宇航员02/" itemprop="url">日常练习丨宇航员02</a></h1>
         
 
         <div class="post-meta">
@@ -1392,7 +1543,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  65
+                  66
                 </span>
               
 
@@ -1432,7 +1583,7 @@
         
           
             <p><img src="http://blog-1255960341.picsh.myqcloud.com/宇航员01.jpg" alt=""></p>
-<p>灵感来自NGA客户端的加载界面，原作是张简笔画，特别羡慕作者那种宇宙毁灭也要来一把的心态，我一介凡人，没有那样的勇气和魄力，只能做张单帧聊以慰籍。</p>
+<p>灵感来自NGA客户端的加载界面，原作是张简笔画，特别羡慕作者那种宇宙毁灭也要先来一局的心态，我一介凡人，没有那样的勇气和魄力，只能做张单帧聊以慰籍。</p>
 
           
         
@@ -1624,160 +1775,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/切换控制面板/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsh_python@foxmail.com">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BRO2">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/18/切换控制面板/" itemprop="url">切换控制面板</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T22:11:43+08:00">
-                2018-01-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  123
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用以下方法用于获取或设定激活的命令面板：</p>
-<pre><code>setCommandPanelTaskMode [mode:]&lt;panel_name&gt;
-</code></pre><p>将指定的命令面板设置为激活。有效 panel_name 值包括：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#create -- Create Panel</span><br><span class="line">#modify -- Modify Panel </span><br><span class="line">#hierarchy -- Hierarchy Panel </span><br><span class="line">#motion -- Motion Panel </span><br><span class="line">#display -- Display Panel </span><br><span class="line">#utility -- Utility Panel</span><br></pre></td></tr></table></figure></p>
-<p><code>SetCommandPanelTaskMode</code> 语法修改在3ds Max 7中，以便作为模式关键字参数，或只需给方法的参数可以指定要切换到的面板名称。<br>以下表达式相等：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setCommandPanelTaskMode #modify</span><br><span class="line">setCommandPanelTaskMode mode:#modify</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1828,7 +1825,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
