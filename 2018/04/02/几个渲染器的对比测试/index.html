@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="测试了几个渲染器，同样的场景，相机，渲染面板，材质都使用默认设置（indigo有些微调，但不影响比较）。测试的机器是图形卡，虽然也属于N卡，但是很多GPU渲染器貌似都不支持，也从另外一个侧面印证了那个观点，3000以下的图形卡就是笑话 Vray首先测试的就是Vray，Vray是国内建筑动画和效果图领域使用最为广泛的渲染器，有大量的教程，模型和工作流程可以直接使用，每个大版本之间的渲染速度都有百分之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几个渲染器的对比测试">
+<meta property="og:url" content="http://yoursite.com/2018/04/02/几个渲染器的对比测试/index.html">
+<meta property="og:site_name" content="BRO2">
+<meta property="og:description" content="测试了几个渲染器，同样的场景，相机，渲染面板，材质都使用默认设置（indigo有些微调，但不影响比较）。测试的机器是图形卡，虽然也属于N卡，但是很多GPU渲染器貌似都不支持，也从另外一个侧面印证了那个观点，3000以下的图形卡就是笑话 Vray首先测试的就是Vray，Vray是国内建筑动画和效果图领域使用最为广泛的渲染器，有大量的教程，模型和工作流程可以直接使用，每个大版本之间的渲染速度都有百分之">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-vray.jpg">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-vray加光效.jpg">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-corona.jpg">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-corona加光效.jpg">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-FS.jpg">
+<meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-indigo.jpg">
+<meta property="og:updated_time" content="2018-04-25T16:02:45.360Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="几个渲染器的对比测试">
+<meta name="twitter:description" content="测试了几个渲染器，同样的场景，相机，渲染面板，材质都使用默认设置（indigo有些微调，但不影响比较）。测试的机器是图形卡，虽然也属于N卡，但是很多GPU渲染器貌似都不支持，也从另外一个侧面印证了那个观点，3000以下的图形卡就是笑话 Vray首先测试的就是Vray，Vray是国内建筑动画和效果图领域使用最为广泛的渲染器，有大量的教程，模型和工作流程可以直接使用，每个大版本之间的渲染速度都有百分之">
+<meta name="twitter:image" content="http://blog-1255960341.picsh.myqcloud.com/L-vray.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/02/几个渲染器的对比测试/"/>
+
+
+
+
+
+  <title>几个渲染器的对比测试 | BRO2</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BRO2</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/几个渲染器的对比测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BRO2">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">几个渲染器的对比测试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T22:01:32+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,274
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>测试了几个渲染器，同样的场景，相机，渲染面板，材质都使用默认设置（indigo有些微调，但不影响比较）。测试的机器是图形卡，虽然也属于N卡，但是很多GPU渲染器貌似都不支持，也从另外一个侧面印证了那个观点，3000以下的图形卡就是笑话</p>
+<h3 id="Vray"><a href="#Vray" class="headerlink" title="Vray"></a>Vray</h3><p>首先测试的就是Vray，Vray是国内建筑动画和效果图领域使用最为广泛的渲染器，有大量的教程，模型和工作流程可以直接使用，每个大版本之间的渲染速度都有百分之三四十的提升，但是慢慢的被其他渲染器追赶甚至超越，最近这几年chaosgrup的动作比较大，收购corona，重写渲染器核心，开发gpu渲染，明显是被一帮小弟打得乱了阵脚。优势是稳定,且对大场景支持良好。</p>
+<p>这是没有开启光效的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-vray.jpg" alt=""></p>
+<p>这是开启光效以后的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-vray加光效.jpg" alt=""></p>
+<p>微调了一些光效参数，默认效果根本无法看。但即使调整过，也是所有效果中最烂的，假的一比</p>
+<h3 id="corona"><a href="#corona" class="headerlink" title="corona"></a>corona</h3><p>可以看作vray的简化版，现阶段在国内效果图行业发展的不错，速度和质量都比vray好一丢丢，优势是简单，官方的说法是，不去动那些参数就是最好的效果…….有一个强大的降噪模式，而且在渲染完成后还能调整灯光，这些功能被chaosgroup收购以后集成到了vray新版本中。另外个人在使用过程中发现它的相机特别好用，虽然参数也挺多，但是我用到的就一个–根据画面自动曝光，勾选以后再也不用管什么狗屁光圈快门ios</p>
+<p>这是未开启光效的效果，和vray半斤八两<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-corona.jpg" alt=""><br>这是开启光效后的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-corona加光效.jpg" alt=""><br>比vray好了很多，但是辉光不太自然，光线跟踪渲染器的水平大概也就这样了吧</p>
+<h3 id="FS"><a href="#FS" class="headerlink" title="FS"></a>FS</h3><p>基于真实光照的物理渲染器，国内有小范围使用，我拿他来做测试是因为他虽然虽然没能支持公司的图形卡，但是可以用cpu渲染，属于通吃的渲染器，用cpu渲染也很快，参数比vray少的多，但是材质类型和通道也很少，这在某些时候可能不构成劣势，比如做效果图和快速教学<br>这是默认参数渲染出来的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-FS.jpg" alt=""><br>这就是物理渲染器的强大之处，这么多年，终于见到了梦寐以求的霓虹灯</p>
+<h3 id="indigo"><a href="#indigo" class="headerlink" title="indigo"></a>indigo</h3><p>在国内非常小众的一款渲染器，我使用的是它的独立版本，材质调节界面非常难用，就换到max版本操作，因为没有找到场景转换工具，所以现学了一下它的材质编辑器，它的标准材质有点像max的标准材质，但是要复杂的多，凹凸贴图的效果和强度让人印象深刻….。渲染面板非常简单，甚至可以用简陋来形容，大部分还是与渲染效果无关的选项。也有一个类似corona的基于图片的曝光方式，但是是集成在渲染面板中</p>
+<p>这是默认参数渲染出来的效果<br>灯光可以继续调亮，但是红色部分溢色过于严重，就没再往上加<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-indigo.jpg" alt=""></p>
+<h4 id="redshift"><a href="#redshift" class="headerlink" title="redshift"></a>redshift</h4><p>这是一个老牌的GPU渲染器，世界上第一款纯GPU的有偏差渲染器。上面介绍的那些都号称无偏差，但是有偏差不一定就弱，（突然想到最近在电梯里看到的刚刚“我们是中间商，我们只赚5%的差价”，把某些二手车平台的脸打得啪啪响）比如现在介绍这一款。它牺牲了一些质量，换来了速度的极大提升，是现阶段最快的渲染器之一（如果是Irradiance Cache GI模式下，可以把之一去掉），在影视行业已经有非常成熟的运用，而且解决了GPU渲染器的内存使用问题，这是它相对于其他GPU渲染器的壁垒级优势，跨不过这道坎，只能做小品。</p>
+<h3 id="octane"><a href="#octane" class="headerlink" title="octane"></a>octane</h3><p>这么说吧，如果oc能够解决显卡内存的使用和Volume物体渲染过慢的问题，那么市面上大部分的渲染器都可以歇菜。现在behance上三维渲染作品几乎都是oc的天下，最接近单反的渲染器，最快的渲染器之一，几乎实时的预览功能，光效独此一家，无人能敌，而且参数简单，说这么多都无法表达我对这个渲染器的喜爱之情。缺点就是贵，这个问题最近有了一些突破，个人用户免费。剩下的就是解决内存问题和增加更多shaders以应对影视级别的需求。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/01/插件丨超级复制粘贴/" rel="next" title="几个渲染器的对比测试">
+                <i class="fa fa-chevron-left"></i> 几个渲染器的对比测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/25/vray帧缓存输出gamma不正确的解决方法/" rel="prev" title="vray帧缓存输出gamma不正确的解决方法">
+                vray帧缓存输出gamma不正确的解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lsh_python@foxmail.com</p>
+              <p class="site-description motion-element" itemprop="description">人生如逆旅，我亦是行人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vray"><span class="nav-number">1.</span> <span class="nav-text">Vray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#corona"><span class="nav-number">2.</span> <span class="nav-text">corona</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FS"><span class="nav-number">3.</span> <span class="nav-text">FS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indigo"><span class="nav-number">4.</span> <span class="nav-text">indigo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#redshift"><span class="nav-number">4.1.</span> <span class="nav-text">redshift</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#octane"><span class="nav-number">5.</span> <span class="nav-text">octane</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsh_python@foxmail.com</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

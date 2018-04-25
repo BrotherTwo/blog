@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="render," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这篇文章没有讲解具体的制作参数，而是从更宏观的角度探讨如何让制作出真实的场景  First of all thanks for reading, and a big thanks to Ronen Bekerman for giving me the opportunity to write this making of about my latest personal project “Mai">
+<meta name="keywords" content="render">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用脚本设置光子帧数间隔">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/Maison Mentana案例研究/index.html">
+<meta property="og:site_name" content="BRO2">
+<meta property="og:description" content="这篇文章没有讲解具体的制作参数，而是从更宏观的角度探讨如何让制作出真实的场景  First of all thanks for reading, and a big thanks to Ronen Bekerman for giving me the opportunity to write this making of about my latest personal project “Mai">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-08-470x705.jpg">
+<meta property="og:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-11-470x705.jpg">
+<meta property="og:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/behance-thumbs.jpg">
+<meta property="og:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-09.jpg">
+<meta property="og:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-07.jpg">
+<meta property="og:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-06.jpg">
+<meta property="og:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-12.jpg">
+<meta property="og:updated_time" content="2018-04-25T15:56:00.203Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用脚本设置光子帧数间隔">
+<meta name="twitter:description" content="这篇文章没有讲解具体的制作参数，而是从更宏观的角度探讨如何让制作出真实的场景  First of all thanks for reading, and a big thanks to Ronen Bekerman for giving me the opportunity to write this making of about my latest personal project “Mai">
+<meta name="twitter:image" content="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-08-470x705.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/18/Maison Mentana案例研究/"/>
+
+
+
+
+
+  <title>用脚本设置光子帧数间隔 | BRO2</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BRO2</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/Maison Mentana案例研究/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BRO2">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用脚本设置光子帧数间隔</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T23:00:04+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,231
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>这篇文章没有讲解具体的制作参数，而是从更宏观的角度探讨如何让制作出真实的场景</p>
+</blockquote>
+<p>First of all thanks for reading, and a big thanks to Ronen Bekerman for giving me the opportunity to write this making of about my latest personal project “Maison Mentana.”</p>
+<a id="more"></a>
+<p><strong>Important to know</strong></p>
+<p>Please consider this article as a start point for a discussion on the topics I raise. I’m also preparing some diagrams, which did not make it into the article yet, but I think it is better to put it out there for you to read and comment as I make these and will share a bit later (work, work, work – you know how it is).</p>
+<p><strong>Let’s get started!</strong></p>
+<p>In 2011, when I just started working in the ArchViz Industry, Ronen published an article about the <a href="https://www.ronenbekerman.com/making-of-3d-render-trojan-house-by-christian-behrendt/" target="_blank" rel="noopener">making of Trojan House</a>, and it’s gratifying to be contributing once again after many years, with all the experiences I gained working in the industry.</p>
+<p>I often get asked by people how I do my materials, my lighting or what my render settings are, etc. so they can improve their images. But when I look at their images, I often see that it’s not the technical aspects holding them back, but more general elements of design, composition, color, etc. The fundamentals of creating images.</p>
+<p>With the increase in realism, we continuously see nowadays in renderers, 3d scanned models, and textures, captured materials, etc. it’s easy to obsess over realism while forgetting that it’s only a small part of what makes an image to be a good image.</p>
+<p>Often times being too faithful to realism can even stand in your way.</p>
+<p>I’m confident most people can do better shaders than me, are faster &amp; better modelers, have better knowledge of render settings, etc. So I’m not going to focus on these topics. And even though I’m still a novice in design, composition, color, and photography I still want to bring your attention to these topics. Why they are important, why you should invest your time studying them, and how I approached them on this project.</p>
+<h2 id="About-the-Project"><a href="#About-the-Project" class="headerlink" title="About the Project"></a>About the Project</h2><p>I decided on doing a single family residential housing project because this type of project allowed me to deliver a lot of shots in a compact space. I could cover various types of rooms, interiors &amp; exteriors, a lovely &amp; small garden with some vegetation, exciting lighting scenarios, etc. Lots of variation going on, while not having to model complex architecture or large environments.</p>
+<p>I also decided to keep it small because with personal projects I often tend to abandon them if I drag them out too long. As I’m not an architect or designer, I also decided to recreate an existing space, as I didn’t want to get held back by architectural design issues.</p>
+<p>During my years working in the field, I learned a lot, and I can give valuable input when needed, but it’s not my job to design spaces – it’s to visualize them. So I merely browsed ArchDaily for a project I liked, and that fitted my requirements and finally decided on <a href="https://www.ronenbekerman.com/maison-mentana-em-architecture/" target="_blank" rel="noopener">Maison Mentana</a>.</p>
+<p><img src="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-08-470x705.jpg" alt="MENTANA-CB-08"></p>
+<p><img src="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-11-470x705.jpg" alt="MENTANA-CB-11"></p>
+<p>Furthermore, I wanted to use this project as a study on <a href="https://www.ronenbekerman.com/goto/corona-render/" target="_blank" rel="noopener">Corona Renderer</a> for C4D. Over the years I’ve seen it growing and people showing a lot of very lovely renders, so I wanted to give it a proper try, as I’ve been looking for an alternative to V-Ray which I’ve been using on most of my architectural projects.</p>
+<p>Also during the last couple of months, I took a step back from just ArchViz and started getting into the more fundamental topics I’ve mentioned in the introduction. I wanted to solidify the knowledge I already had and build on that further and finally bring it to use in a personal project. In a way where it might be a bit easier compared to a commercial project which often has a lot of restrictions that prohibit certain types, styles or approaches and also doesn’t allow the time to experiment.</p>
+<h2 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a>Composition</h2><p>Let’s begin with composition. At its core, it is the essential aspect of every image, yet as far as I can tell maybe also the most misunderstood concept. While it is good to know about things like rule of thirds, golden ratio, etc. If you think that’s all that’s to it you miss a lot of valuable aspects.</p>
+<p>Composition at its core dictates how viewers should read your image, how the eyes wander through the picture, what they are supposed to look at. It’s the foundation of your image storytelling, and at this stage, realistic shaders don’t matter. I’m sure everyone regularly browsing this blog showcase, Behance, etc. will have noticed by now… Even if you only look at thumbnails of 100x100px, you already can tell if you’re drawn to an image or not.</p>
+<p><img src="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/behance-thumbs.jpg" alt="img"></p>
+<p>It’s here where you decide whether or not you even bother to watch a bigger resolution. And many images don’t succeed at this stage, because their composition isn’t well thought through and not drawing people in, and if you don’t get people past this stage you’re work might be wasted.</p>
+<p>Because all your talent for realism, shading, modeling etc. won’t matter if you can’t present it in a way that people are immediately hooked. Especially nowadays when you have to compete with thousands of great artists all around the world and being bombarded with images left and right. If you don’t get the basics right, you will drown in that ocean of images.</p>
+<p>An excellent composition should be well thought through and in turn, will influence every aspect of your image, because it’s so much more than mathematical rules for placing your objects of interest.</p>
+<p>Trying to explain composition in whole would certainly take too much time and overstep my knowledge as I have still to learn a lot myself, but I’ll try to show you which aspects I find most important in my work and why. But also bear in mind that for every rule, idea, hypothesis, etc. there are exceptions.</p>
+<h3 id="So-how-do-we-achieve-a-good-composition"><a href="#So-how-do-we-achieve-a-good-composition" class="headerlink" title="So, how do we achieve a good composition?"></a>So, how do we achieve a good composition?</h3><p>In general, you could say, the easier and more elegant a composition is, the better it works.</p>
+<p>I kindly place a reminder here, as said above, there are always exceptions. But even if you were creating a chaotic war scene with a lot of action, if you’re viewer isn’t sure where to look, he will disengage, he will miss the important action, he might even get bored to the point he doesn’t care to watch at all anymore.</p>
+<p>So with our goal in mind (for example “Hey! Look at that cool skylight and how it creates a nice lighting in this room”) and our approach (keep it simple and elegant) we can now see what tools we have in our belt to achieve all this.</p>
+<p>For me it comes down to these aspects :</p>
+<ol>
+<li>Focus</li>
+<li>Perspective</li>
+<li>Shapes</li>
+<li>Contrast</li>
+</ol>
+<p>And they are all related to each other and should play together like a finely tuned orchestra.</p>
+<h2 id="Contrast"><a href="#Contrast" class="headerlink" title="Contrast"></a>Contrast</h2><p>Let’s begin with Contrast, as in my opinion it’s the most important, and impacts all other aspects as well. Contrast is so important because without it there would be nothing for our eyes to make out in an image. If everything is the same, then there is just nothing to look at.</p>
+<p>So to have anything discernible at all, you need contrast.<br>Contrast plays a role in much more aspects of composition than you might be aware of at first.</p>
+<p>The most obvious of course is simple contrasts in value and tone. Those two will mainly factor in structuring the basic color concept for your image, e.g., what materials you might choose, what lighting scenario you are going for, which parts of your image will be in shadow and which will be lit, and so on.</p>
+<p>But apart from that, there are many other areas in which you can use contrast to enhance your composition. I’m just going to name a few, but once you have grasped that contrast doesn’t merely refer to pixel values, but to design aspects you can apply it to almost every aspect you can think of – which is why contrast is so influential.</p>
+<p>Some key areas which come to mind for me when thinking about contrast are level of detail, camera focus, aging/weathering and materials in general. Areas in your image where you put a lot of geometric detail, many props, etc. are more likely to grab the viewers eye over less populated areas, objects in the camera’s focus obviously also stand more out over objects out of focus and so on.<br>So to conclude – using this concept of contrast will allow you to guide the viewer’s eye through an image. Use it thoughtfully, be aware that it’s about more than just pixel values and try experimenting with it in areas you might not have thought of before.</p>
+<p><img src="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-09.jpg" alt="img"></p>
+<h2 id="Focus"><a href="#Focus" class="headerlink" title="Focus"></a>Focus</h2><p>I briefly mentioned rules like the rule of thirds and the golden ratio. These rules are essential for placing your object(s) of focus, and they work because our brains are wired to just prefer specific ratios/flows over others. By no means, you always have to align your Object of focus 100% perfect, but if you bend the rules too far, the viewer will have the feeling that something looks off.</p>
+<p>However, it can be even worse if you don’t have a focus object at all. Like said before – if your eye doesn’t have a starting point to dive in the viewer is likely to disengage pretty quickly.</p>
+<p>I won’t go on explaining specific rules because I’m sure many will already know about them. I also encourage you to read Lasse Rode’s article on this blog – “<a href="https://www.ronenbekerman.com/photographic-approach-in-architectural-visualisation/" target="_blank" rel="noopener">Photographic Approach in Architectural Visualization</a>“.</p>
+<p>When thinking about focus and using the compositional rules, also try to think about contrast. Can you strengthen your focus by using contrast in lighting, material, detail and so on?</p>
+<p>As I said before – all aspects of composition are tied together and play hand in hand, and if you learn not to use them as isolated ideas but connect them your images will improve drastically.</p>
+<p><img src="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-07.jpg" alt="img"></p>
+<h2 id="Perspective"><a href="#Perspective" class="headerlink" title="Perspective"></a>Perspective</h2><p>The placement, orientation, focal length, etc. of your camera obviously is also of enormous importance.</p>
+<p>In architecture, I mainly prefer a quite simple approach using the one-point-perspective for most shots. It’s a very straightforward perspective to understand and non-distracting, you’ll most likely end up with leading lines to guide the viewer’s eye, and it gives the most undistorted perspective view of the space possible.</p>
+<p>All very important aspects when considering architectural visualization.</p>
+<p>Using more dynamic perspectives can of course work also, but I mostly stick to one-point-perspective for my main shots and then get a bit more dynamic with additional &amp; detail shots. As always – try thinking about possibilities to strengthen your perspective with contrast regarding placing of objects, lighting, etc.</p>
+<p><img src="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-06.jpg" alt="img"></p>
+<h2 id="Shapes"><a href="#Shapes" class="headerlink" title="Shapes"></a>Shapes</h2><p>This might be the most abstract of the four topics. In the beginning, I mentioned that a simple and elegant composition is most likely desired and will succeed.</p>
+<p>When thinking about shapes, try breaking down the elements of your image to big, simple geometric shapes – lines, rectangles, circles, triangles, etc.</p>
+<p>At this stage, your composition should already convey your idea correctly. Of course, a lot of factors will be left out at this point, but it will be the foundation on top of which you then can layer all the rest. If your composition doesn’t hold up at this stage, you might run into problems later, which is why you should take your time and get it to work here already.</p>
+<p>Apart from this broad scope approach, shapes also play an essential role at later stages. The way you place your objects can create lines that point to the focus object, the same with the direction of light &amp; shadow.</p>
+<p>You can also play with contrasting shapes. A sphere in a line of rectangles will stand out. Try thinking about how the basic composition should work, which shapes work the best and then go figure out in which ways you might be able to achieve this.</p>
+<p><img src="https://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2018/02/MENTANA-CB-12.jpg" alt="img"></p>
+<p>As mentioned before, please take all this with a grain of salt.</p>
+<p>There are exceptions to all these ideas, guidelines, or whatever you might call them. I also didn’t go into too much detail, as this would take up way too much time and there are plenty of great resources out there already.</p>
+<p>I just wanted to draw attention to these aspects of image creation, because in my opinion there are the most important and often are overlooked by many people, because they solely focus on realism.</p>
+<p>Try to learn about traditional painting and concept art. By diving into those topics, I learned a lot, because there these aspects are much more prominent because realism isn’t this significant obtrusive factor as it often tends to be in visualization.</p>
+<p><strong>Cheers,</strong></p>
+<p><strong>Christian Behrendt.</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/render/" rel="tag"><i class="fa fa-tag"></i> render</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/18/获取Max版本信息/" rel="next" title="获取Max版本信息">
+                <i class="fa fa-chevron-left"></i> 获取Max版本信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/18/用脚本设置光子帧数间隔/" rel="prev" title="用脚本设置光子帧数间隔">
+                用脚本设置光子帧数间隔 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lsh_python@foxmail.com</p>
+              <p class="site-description motion-element" itemprop="description">人生如逆旅，我亦是行人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#About-the-Project"><span class="nav-number">1.</span> <span class="nav-text">About the Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Composition"><span class="nav-number">2.</span> <span class="nav-text">Composition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#So-how-do-we-achieve-a-good-composition"><span class="nav-number">2.1.</span> <span class="nav-text">So, how do we achieve a good composition?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contrast"><span class="nav-number">3.</span> <span class="nav-text">Contrast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Focus"><span class="nav-number">4.</span> <span class="nav-text">Focus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Perspective"><span class="nav-number">5.</span> <span class="nav-text">Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shapes"><span class="nav-number">6.</span> <span class="nav-text">Shapes</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsh_python@foxmail.com</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
