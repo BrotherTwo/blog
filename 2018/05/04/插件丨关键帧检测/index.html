@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="在群里看到一个python面试题：  盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）  按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下1234for b in range(87) :     for a in range(81):         if (25*a)+(23*b)==2000:">
-<meta name="keywords" content="python">
+<meta name="description" content="群里又人提了个问题，在关键帧非常密集的时候，如何判断时间滑块所处的位置有没有关键帧。我不理解为什么要这么个功能，但是闲来无事还是思考了一下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一道python面试题">
-<meta property="og:url" content="http://yoursite.com/2018/01/24/一道python面试题/index.html">
+<meta property="og:title" content="插件丨关键帧检测">
+<meta property="og:url" content="http://yoursite.com/2018/05/04/插件丨关键帧检测/index.html">
 <meta property="og:site_name" content="BRO2">
-<meta property="og:description" content="在群里看到一个python面试题：  盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）  按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下1234for b in range(87) :     for a in range(81):         if (25*a)+(23*b)==2000:">
+<meta property="og:description" content="群里又人提了个问题，在关键帧非常密集的时候，如何判断时间滑块所处的位置有没有关键帧。我不理解为什么要这么个功能，但是闲来无事还是思考了一下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T06:12:55.072Z">
+<meta property="og:updated_time" content="2018-05-04T15:34:58.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一道python面试题">
-<meta name="twitter:description" content="在群里看到一个python面试题：  盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）  按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下1234for b in range(87) :     for a in range(81):         if (25*a)+(23*b)==2000:">
+<meta name="twitter:title" content="插件丨关键帧检测">
+<meta name="twitter:description" content="群里又人提了个问题，在关键帧非常密集的时候，如何判断时间滑块所处的位置有没有关键帧。我不理解为什么要这么个功能，但是闲来无事还是思考了一下">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/24/一道python面试题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/04/插件丨关键帧检测/"/>
 
 
 
 
 
-  <title>一道python面试题 | BRO2</title>
+  <title>插件丨关键帧检测 | BRO2</title>
   
 
 
@@ -253,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/一道python面试题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/插件丨关键帧检测/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lsh_python@foxmail.com">
@@ -270,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一道python面试题</h1>
+          <h1 class="post-title" itemprop="name headline">插件丨关键帧检测</h1>
         
 
         <div class="post-meta">
@@ -282,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-24T01:27:06+08:00">
-                2018-01-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-04T22:47:43+08:00">
+                2018-05-04
               </time>
             
 
@@ -314,7 +313,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  432
+                  217
                 </span>
               
 
@@ -330,7 +329,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -351,22 +350,10 @@
       
 
       
-        <p>在群里看到一个python面试题：</p>
-<blockquote>
-<p>盒子里有两种硬币，一种25克每枚，一种23克每枚，所有硬币重2千克。列出盒子中硬币数量的所有可能值。（计算量越小越好）</p>
-</blockquote>
-<p>按照正常思路，极限情况下，25克的最多80枚，23克的最多86枚，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for b in range(87) :</span><br><span class="line">     for a in range(81):</span><br><span class="line">         if (25*a)+(23*b)==2000:</span><br><span class="line">             print(a,b)</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>这个过程总共计算了7047次</p>
-<p>仔细观察可以发现，25x+23y=2000，y只可能是5的倍数，所以得到代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bnum=[]</span><br><span class="line">for n in range(0,80,5):</span><br><span class="line">    bnum.append(n)</span><br><span class="line">for b in bnum :</span><br><span class="line">    for a in range(86):</span><br><span class="line">        if (25*a)+(23*b)==2000:</span><br><span class="line">            print(a,b)</span><br></pre></td></tr></table></figure></p>
-<p>这一次计算了1376次</p>
-<p>另外观察到x与y的关系为:</p>
-<pre><code>y=25(80-x)/23
-</code></pre><p>x,y均为整数，那么<code>80-x</code>必定要是23的倍数，即可得到<br><code>80-x=23*n</code> ，其中n大于等于0，小于等于3<br>所以得到x的值为80，57，34，11，对应的y的值为0，25，50，75</p>
-<p>只不过这属于逻辑分析，在本题目的环境下已经没必要使用代码解决<br>真要使用代码的话，可以这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bnum=[]</span><br><span class="line">for n in range(0,80,5):</span><br><span class="line">    bnum.append(n)</span><br><span class="line">anum=[]</span><br><span class="line">for n in range(4):</span><br><span class="line">	anum.append(80-23n)</span><br><span class="line">for b in bnum :</span><br><span class="line">    for a in anum:</span><br><span class="line">        if (25*a)+(23*b)==2000:</span><br><span class="line">            print(a,b)</span><br></pre></td></tr></table></figure></p>
-<p>这次的计算量为64次<br>当然，优化一下的话<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">anum=[]</span><br><span class="line">for n in range(4):</span><br><span class="line">	anum.append(80-23*n)</span><br><span class="line">for a in anum:</span><br><span class="line">	print(a,(2000-25*a)/23)</span><br></pre></td></tr></table></figure></p>
-<p>计算量为8次</p>
-<p>实际上不考虑计算量而只考虑最快实现的的话，使用sympy库是最简单的</p>
+        <p>群里又人提了个问题，在关键帧非常密集的时候，如何判断时间滑块所处的位置有没有关键帧。我不理解为什么要这么个功能，但是闲来无事还是思考了一下<br><a id="more"></a><br>下面是第一版代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">allkeys=#()</span><br><span class="line">sk=$.position.controller.keys</span><br><span class="line">t=slidertime</span><br><span class="line"></span><br><span class="line">for a in sk do append allkeys a.time</span><br><span class="line"></span><br><span class="line">if (finditem allkeys t)!=0 do</span><br><span class="line">	print (t as string)+&quot;fuck&quot;</span><br></pre></td></tr></table></figure></p>
+<p>但每滑动一次时间滑块都要执行一次，在群友的提示下，知道了callback方法，进而找到了registerTimeCallback方法，至此实现了自动检测时间变化而执行代码的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">allkeys=#()</span><br><span class="line">sk=$.position.controller.keys</span><br><span class="line"></span><br><span class="line">for a in sk do append allkeys a.time</span><br><span class="line"></span><br><span class="line">fn fk=(</span><br><span class="line">	t=slidertime</span><br><span class="line">	if (finditem allkeys t)!=0 do</span><br><span class="line">		print (t as string)+&quot;fuck&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">registerTimeCallback fk</span><br></pre></td></tr></table></figure>
+<p>取消registerTimeCallback方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unRegisterTimeCallback &lt;fn&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -382,12 +369,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
-          
-        </div>
-      
 
       
       
@@ -397,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/24/Python2和3的兼容以及pip的安装/" rel="next" title="Python2和3的兼容以及pip的安装">
-                <i class="fa fa-chevron-left"></i> Python2和3的兼容以及pip的安装
+              <a href="/2018/04/29/插件丨两点连接/" rel="next" title="插件丨两点连接">
+                <i class="fa fa-chevron-left"></i> 插件丨两点连接
               </a>
             
           </div>
@@ -407,8 +388,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/24/序列乱码的解决方法/" rel="prev" title="序列乱码的解决方法">
-                序列乱码的解决方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/10/各种快捷键总汇/" rel="prev" title="各种快捷键总汇">
+                各种快捷键总汇 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
