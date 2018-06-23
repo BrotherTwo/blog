@@ -470,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,177
+                  3,176
                 </span>
               
 
@@ -508,132 +508,15 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>最近看了一些老外的教程，因为离开行业核心已经有一段时间，感觉又有了新变化，这篇文章介绍的工具和流程是现阶段老外普遍使用的，很有参考性，而且每一个流程都给出了基础教学链接，非常棒。所以决定把它扒下来保存，因为某些神秘力量，图片可能会加载的非常慢，建议翻墙，下面是一点点总结：</p>
-<p> !– more –&gt;</p>
-<ol>
-<li>模型流程是先在max里建立简模，再转到zb里雕刻细节，另外一些老外也使用su建模，现在效果图su+vray很流行，布料模拟方面当年还是小众的Marvelous Designer，现在几乎垄断了整个行业，我一直好奇为什么会有如此强大的实时模拟能力</li>
-<li>展uv使用了max2017新增的multitile unwrapping工具</li>
-<li>种树使用了软件Forest Pack Pro，这个软件在很多老外的教程里都提到，功能强大，完爆mutilscatter十条街</li>
-<li>藤曼使用了Ivy Generator（这款软件虽然强大，但是可控性欠缺，也很古老。看来老外也没有找到更理想的替代方案）</li>
-<li>参数化建模使用了Rail Clone，这个软件很出名，不必多介绍</li>
-<li>灯光方面,作为以往的重头戏，这次一笔带过，因为作者使用了corona渲染器，作者对vray充满了怨念啊2333：<blockquote>
-<p>This is the simplest topic in term of technical aspects. Since we use Corona Renderer, in the first place, there are no settings to mess with. Just hit render and everything will run smoothly. This is one of the things we like the most about Corona after so many years of using Vray. We feel unshackled.</p>
-</blockquote>
-</li>
-<li>材质使用了Substance Designer 和 Substance Painter。这篇文章就是为了介绍这两个软件写的，但是即使刨除广告成分，它们也非常的awesome，粒子贴图生成让人爱不释手。</li>
-<li>调色AE,Magic Bullet,业内标配，没啥可说的</li>
-</ol>
-</blockquote>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>First thing first, I’m very happy and honored to have the chance to write an article for this prestigious blog, which I’ve been reading from the very beginning. For me it is a great source of knowledge and inspiration. Being able to give backf&nbsp;is an awesome opportunity.</p>
-<h3 id="The-Garden-Loft"><a href="#The-Garden-Loft" class="headerlink" title="The Garden Loft"></a>The Garden Loft</h3><p>Garden Loft is an in-house project that my partner Victoria and I started some time ago and was intended as a sandbox, to learn new techniques and workflows, but mainly to learn and introduce to our pipeline the Allegorithmic suite – Substance Designer and Substance Painter.</p>
-<p>These are the images.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/Renders.jpg" alt=""></p>
-<p>Luckily the implementation was very successful for us and we are really happy with what we have achieved in such short time of learning the software.</p>
-<p>The things that work for us about this software is that material creation is intuitive, fast, and in real time. We can now recreate pretty much every material our clients ask us with great accuracy. It’s an everyday struggle when clients send us a 100px by 100px reference for the material they want/need and we can’t find any texture on the web or product manufacturer, even the ones that don’t exist anymore because they’re no longer being produced… we are frequently asked to do that too. At the end, it is faster to create these textures from scratch than invest time looking for them whenever they don’t pop up in the first run.</p>
-<p>The hard work is handled by substance software, you don’t have to end up in 3dsmax with a super complex shader network. So there is no need, for example, of the expensive blend materials, just a couple of bitmaps and you are good to go. On top of that, it’s super fun.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>We thought of this place as a place we would like to live in (apart from being partners with Victoria we’re also a couple). Both of us like old refurbished buildings so we thought of a warehouse loft straight away.</p>
-<p>After we decided what we wanted to do we started collecting references and ended up with a huge amount of photos of many lofts of different styles. At that point, we were ready to design our very own loft. We did sketches with traditional media, floor plans, elevations, sections, perspectives and all the things regarding architecture stuff.</p>
-<p>When we knew exactly what we wanted, we dived into 3dsmax.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/01-Garden-Loft-referencias.jpg" alt=""></p>
-<h3 id="3D-Modelling"><a href="#3D-Modelling" class="headerlink" title="3D Modelling"></a><strong>3D Modelling</strong></h3><p>Modeling, for what was done inside 3ds max, is just simple box modeling so there’s not much to say about that but we do most of our assets, regarding furniture and environment, within Zbrush. This is because it is an incredibly powerful sculpting software and we really like the idea of “scalability” when we build our assets. So we can create super-detailed models (to build up our library) and then decide very easily the resolution of that model regarding our needs or how the project evolves.</p>
-<p>So this was the case, for instance, of the brick walls. I sculpted a few bricks which then were converted to insert multimesh (<a href="http://pixologic.com/zclassroom/lesson/brush-creation-insert-mesh" target="_blank" rel="noopener">http://pixologic.com/zclassroom/lesson/brush-creation-insert-mesh</a>) brushes. These are brushes that contain different meshes associated with it and you can use it to insert them onto other meshes.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/01.1-Garden-Loft-multimesh.jpg" alt=""></p>
-<p>Then they were scattered, through a base mesh, I brought from 3ds max, using nanomeshes (<a href="http://pixologic.com/zclassroom/lesson/nanomesh-functionality" target="_blank" rel="noopener">http://pixologic.com/zclassroom/lesson/nanomesh-functionality</a>) inside of Zbrush (Kind of the Zbrush’s <a href="https://www.ronenbekerman.com/goto/forest-pack/" target="_blank" rel="noopener">Forest Pack</a> Pro). Then everything was baked into a single mesh and sculpted over.</p>
-<p>After that I decimated (<a href="http://pixologic.com/zclassroom/lesson/creating-a-picatinny-rail-part-3" target="_blank" rel="noopener">http://pixologic.com/zclassroom/lesson/creating-a-picatinny-rail-part-3</a>) the high poly mesh, merged that into 3ds max and turned it into a corona proxy and set in place as individual assets, mirrored, rotated and so on to give the impression they are unique. The whole process took about one hour from start to finish. It is really fast and you always have the high detailed version to go back and make changes or if you decide you need more detail on your final mesh.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/02-Garden-Loft-Zbrush-bricks.jpg" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/03-Garden-Loft-Decimated-brick-wall-section.jpg" alt=""><br>Wisteria flowers were also made with Zbrush because it is easier and faster to move points around and deform the mesh with pen pressure sensitivity and the move brushes. Also, unwrapping of these simple models is automatic with UV Master, the unwrap tool of Zbrush.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/04-Garden-Loft-Wisteria-Flowers.jpg" alt=""></p>
-<p>If you want to learn Zbrush a great starting point is the Zclassroom at Pixologic website which is awesome and free and the tutorials on hard surface modeling from Mike Jensen.</p>
-<p>Another thing where we experimented a bit was with the metal structure. It was done in 3ds max with box modeling and we thought of it as different pieces/assets that formed the whole thing. The experimentation came with a new feature of 3ds max 2017 (which is really cool), called multitile unwrapping. It is well known on other software packages but it’s cool to have it now on max.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/05_Garden-Loft_structure-assets.jpg" alt=""></p>
-<p>So basically we unwrapped every piece of the structure, then merged it into one piece and rearranged the UV clusters into different tiles or UV sets.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/06-Garden-Loft_UVs.png" alt=""></p>
-<p>This is great because the latest version of Painter supports UDIM format so whenever you import a multitile unwrapped mesh, painter will automatically separate those pieces of geometry and create different UV sets for you. With this, there is no need to have the same texel density throughout the whole mesh since you can adjust texture scale inside of Substance Painter. Then via the multitile node inside 3ds max you can plug in all your texture sets for your asset.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/07-Garden-Loft_Multitile-setup.jpg" alt=""></p>
-<p>We are using this method now, to texturize big pieces of geometry in real-time with painters, like streets and walkways.</p>
-<p>Here is a sample of another project of a big piece of street textured in one go :</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/08_Garden-Loft_Painter-sample.png" alt=""></p>
-<p>For the creation of the green wall, we used <a href="http://www.ronenbekerman.com/bf/maxtree" target="_blank" rel="noopener">MaxTree plants</a> which are really awesome models and <a href="http://www.ronenbekerman.com/goto/forest-pack/" target="_blank" rel="noopener">Forest Pack Pro</a> to distribute them along the surface into a specific pattern.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/09_Garden_Loft-Forest_settings-Altogether.jpg" alt=""></p>
-<p>It consists of 3 different Forest objects. Nested within each other as exclusion zones. Also, we used clusters option to avoid noisy an unnatural look of the plant distribution.</p>
-<p>Base small layer of plants and their settings.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/10_Garden_Loft-Forest_settings_Green_cover_02.jpg" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/11_Garden_Loft-Forest_settings_Green_cover_01.jpg" alt=""></p>
-<p>Bigger “monstera” plants :</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/12_Garden_Loft-Forest_settings_Monstera_02.jpg" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/13_Garden_Loft-Forest_settings_Monstera_01.jpg" alt=""></p>
-<p>Medium size and color plants to give and accent to the overall green :</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/14_Garden_Loft-Forest_settings-Color_flowers_02.jpg" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/15_Garden_Loft-Forest_settings-Color_flowers_01.jpg" alt=""></p>
-<p>Wisterias were also scattered with <a href="https://www.ronenbekerman.com/goto/forest-pack/" target="_blank" rel="noopener">Forest Pack</a> Pro over the ivy’s we made with Ivy Generator.</p>
-<p>Finally, there are the deck and fence of the balcony that were created with <a href="https://www.ronenbekerman.com/goto/railclone/" target="_blank" rel="noopener">Rail Clone</a> Pro but there is nothing fancy about that. Just made with simple steps you can see here (<a href="http://www.itoosoft.com/tutorials/tutorial_parquet_floor.php?back=page%3D2%26tag%3Drc" target="_blank" rel="noopener">http://www.itoosoft.com/tutorials/tutorial_parquet_floor.php?back=page%3D2%26tag%3Drc</a>)</p>
-<p>That’s all about modeling.</p>
-<h2 id="Lighting"><a href="#Lighting" class="headerlink" title="Lighting"></a>Lighting</h2><p>This is the simplest topic in term of technical aspects. Since we use <a href="http://www.ronenbekerman.com/goto/corona-render/" target="_blank" rel="noopener">Corona Renderer</a>, in the first place, there are no settings to mess with. Just hit render and everything will run smoothly. This is one of the things we like the most about Corona after so many years of using Vray. We feel unshackled.</p>
-<p>We used simple exposure settings till we reach the exposure we like and then fix it with a corona cameramod.</p>
-<p>The denoise feature is really neat an does a really great job once you reach a reasonable noise level. We never go past 0.7 though, to avoid textures being blurred.</p>
-<p>So about lighting, we tested based on references till we got something that we liked. Everything was lit with an HDR image on a Corona bitmap on the environment. Sometimes we adjust the curves to get a little bit more contrast and that’s pretty much all there is to it.</p>
-<p>We used <a href="http://www.ronenbekerman.com/bd6/peterguthrie-hdri-shop" target="_blank" rel="noopener">Peter Guthrie’s HDR’s</a>.</p>
-<h2 id="Texturing"><a href="#Texturing" class="headerlink" title="Texturing"></a>Texturing</h2><p>This was the interesting part of our process in this particular project. First, I would like to talk about our workflow between Substance and when and where we use it.</p>
-<p>It was very important to identify which parts of the scene were going to go through Substance and which ones not in order to successfully implement the software in our pipeline.</p>
-<p>The criteria were as follows :</p>
-<ul>
-<li>Importance of the material in the scene- Complexity or the material- Availability of textures- Complexity of the model<br>The other aspect of deciding about implementation was in which cases utilize what piece of software. <a href="https://www.ronenbekerman.com/goto/substance-designer/" target="_blank" rel="noopener">Substance Designer</a> and <a href="https://www.ronenbekerman.com/goto/substance-painter/" target="_blank" rel="noopener">Substance Painter</a> are meant to work together and they complement each other but at the same time, they offer very different toolsets so you have a lot of flexibility to decide in which way to work.</li>
-</ul>
-<p>So, after a bit of experimentation and trial and error, our workflow came up to be using <a href="https://www.ronenbekerman.com/goto/substance-painter/" target="_blank" rel="noopener">Substance Painter</a> for small assets like furniture or any kind of gadgets and <a href="https://www.ronenbekerman.com/goto/substance-designer/" target="_blank" rel="noopener">Substance Designer</a> to generate procedural tileable textures for any kind of surfaces and environments. We also use the substance directly within 3ds max which gives you and an infinite amount of variations for your textures and you can modify it directly in 3ds max. Also, we do our baking process inside of Substance Designer even though you can do it with Painter as well.</p>
-<p>We’ll go through a couple of materials, the most important ones, and try to explain the process as best as we can but we strongly recommend you to take a look at the Allegorithmic’s YouTube channel since there you will find pretty much everything you need to get up and running with Substance suite.</p>
-<p>The metal structure material on <a href="https://www.ronenbekerman.com/goto/substance-painter/" target="_blank" rel="noopener">Substance Painter</a></p>
-<p>The one thing you will always want to have when working with Substance is properly unwrapped geometry. So after the preparation of the model as described in the modeling section we brought the model to Painter and baked the model information to different maps as normal, occlusion, curvature, world space normal and position.</p>
-<p>You will need this maps because the procedural mask generators use this information to “know” how the mesh is like so they can create, edge damages based on curvature maps, dust based on world space normal or position and so on. You usually bake a high poly model to a low poly model but in this case, we baked the model onto itself in order to get these maps.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/16-Garden-Loft_new-painter-doc.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/17-Garden-Loft_ready-fbx.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/18-Garden-Loft_bake-textures.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/19-Garden-Loft_Baked-textures.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/20-Garden-Loft_Raw-metal.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/21-Garden-Loft_Damaged-paint.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/22-Garden-Loft_Rust-and-dust.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/24-Garden-Loft_Final-material.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/25-Garden-Loft_painter-export.png" alt=""></p>
-<p>Here is a screenshot of the painter project with all the material layers and then the asset rendered in 3ds max with <a href="https://www.ronenbekerman.com/goto/corona-render/" target="_blank" rel="noopener">corona renderer</a> :</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/26_Garden-Loft_layer-stack.png" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/27_Garden-Loft_corona-render.jpg" alt=""></p>
-<p>Simple concrete floor material in&nbsp;Substance Designer :</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/28_Garden-Loft_HA-Substance.jpg" alt=""></p>
-<p><a href="https://www.ronenbekerman.com/goto/substance-designer/" target="_blank" rel="noopener">Substance Designer</a> might be a bit more complicated than Substance Painter since it has a node based nonlinear workflow, so basically you will be plugging nodes back and forth and reusing already placed nodes to create the effect you need.</p>
-<p>You can set up the project for both metal/roughness or specular/glossiness models and work in a nondestructive way; the same as Painter. You can work in low resolutions and when you are ready to export the textures change the output size and Designer will “redraw” all your textures in higher res without losing detail. In fact, the opposite – increasing it.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/29_Garden-Loft_graph.jpg" alt=""></p>
-<p>This is the graph for the concrete material. At first it can be a bit daunting but in fact, this is a really simple material and once you get familiar with what each node does your graphs will grow exponentially as well as the complexity of your materials. The workflow is pretty much the same as creating a material in the slate material editor in 3ds max.</p>
-<p>As you can see, the part in which the material is broken down let you understand more clearly how it works. It is always good practice to comment your graph sections. Otherwise, it will be extremely difficult to track down what a specific node is doing.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/30_Garden-Loft_main-mask.jpg" alt=""></p>
-<p>This part of the graph is driving the big bumps of the surface with a little bit of break up in the transition areas. Basically, two different noises combined and ran through a levels correction to make it more contrasted.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/31_Garden-Loft_surface.jpg" alt=""></p>
-<p>This part generates the surface detail. It is divided into two sections. The detail in the elevated areas (white) and on low areas (black). Again, procedural noises mixed by a blend node which mixes to nodes together. The placement of the different surface details is driven by the mask created in the previous step.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/32_Garden-Loft_map-generation.jpg" alt=""></p>
-<p>In this section, we create normal, specular and glossiness maps as well as height.</p>
-<p>The normal map is created by blending both surface textures by and Add (linear dodge) transfer mode and then plugged into a normal node which basically transforms any height map type to a normal format either DirectX or OpenGL. Here you can set the intensity as well.</p>
-<p>Specular and Glossiness are created by blending the surface details maps and multiplying them by a color which in a whole is driven by the main mask. With the authoring of these maps, I strongly recommend you to stick to the PBR workflow and your textures will work almost straight forward with your renderer. With this, I am talking about specular range and F0 value for dielectrics and the specular range for metals as well as PBR values for the glossiness maps.</p>
-<p>You can read the Allegorithmic guide which is very clear and comprehensive. Then you have your outputs which will be the maps to be exported.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/33_Garden-Loft_diffuse.jpg" alt=""></p>
-<p>The diffuse creation is simply a layering of subtle variations of shades mixed on top of slightly different noise patterns. They key when building procedural materials is layering, since it is the only way to break up the CG look of your textures. When creating surface textures keep in mind that variations need to be subtle otherwise, even though your texture is seamless, you will end up with a strongly noticeable pattern.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/34_Garden-Loft_AO.jpg" alt=""></p>
-<p>Finally, there is the ambient occlusion generation which is both exported as a map and baked into the diffuse map. In SD there is a node to generate AO, you need to feed it a Heightmap which is created from a normal map. That is basically the flow in the graph. When creating textures be sure to always create an AO pass for your diffuse information since the normal map will do the job when the surface is being hit by a light source and the AO will help to still read the details when only affected by diffuse lighting.</p>
-<p>To sum up texturing consider that your Diffuse, Specular, and AO have to be loaded into your <a href="https://www.ronenbekerman.com/goto/corona-render/" target="_blank" rel="noopener">Corona Renderer</a> / V-Ray material in SRGB mode and all the rest in Linear grayscale. This is very important, otherwise, your textures won’t look as in SD/Painter.</p>
-<h2 id="Post-Production"><a href="#Post-Production" class="headerlink" title="Post Production"></a>Post Production</h2><p>We like to do the post on After Effects because of 3 main reasons. We try to do our best and most of the work in 3d so there is not much to do in post besides color grading, it is really easy to iterate in the post with AE and you always work in a nondestructive way. You can do really cool stuff with the awesome plugins available.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/35_Garden-Loft_RAWPOST.jpg" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/36_Garden-Loft_Pass-composite.jpg" alt=""></p>
-<p>Here is the RAW plus the composition of all the passes. In this case, direct, indirect, translucency and reflect and you can see there the transfer modes mainly to give more contrast.</p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/37_Garden-Loft_Looks.jpg" alt=""></p>
-<p><img src="http://rbblog-wpengine.netdna-ssl.com/wp-content/uploads/2016/08/38_Garden-Loft_look-settings.jpg" alt=""></p>
-<p>Here is the final touch with Magic Bullet Suite. We use it for color grading as well as other subtle effects like diffusion and film prints.</p>
-<p><strong>That is all.</strong></p>
-<blockquote>
-<p>I hope this will help someone in someway. I encourage you try Substance, it is a really awesome software and with all the hype there is around real time arch viz the use of real time engines like UE4, texturing is a really important matter to take into consideration since you will need to deal with two different shading models. Having a texturing solution which can be neutral to both ends is a really nice way of working and keeping things simple.</p>
-</blockquote>
-<p>Thanks for reading and thanks Ronen for giving us the opportunity to show our work here.</p>
-<p><a href="http://www.timemachinecg.com/" target="_blank" rel="noopener">TIME MACHINE</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/05/Making-of-Garden-Loft/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
