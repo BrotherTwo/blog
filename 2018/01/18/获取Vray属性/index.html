@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="如何获知VRay渲染器属性？ 第1步：设置当前渲染器为VRay 2步：在MAXScript Listener里面执行如下代码： r = renderers.current how vr !– more –&amp;gt; 如何获知VRay材质的属性？直接在MAXScript Listener里面执行如下代码: m = VRayMtl() how m  如何获知VRay环境的属性？ 第1步：添加VRayTo">
+<meta name="description" content="如何获知VRay渲染器属性？ 第1步：设置当前渲染器为VRay 2步：在MAXScript Listener里面执行如下代码： vr = renderers.current show vr">
 <meta name="keywords" content="maxscript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="丨脚本丨获取Vray属性">
 <meta property="og:url" content="http://yoursite.com/2018/01/18/获取Vray属性/index.html">
 <meta property="og:site_name" content="BRO2">
-<meta property="og:description" content="如何获知VRay渲染器属性？ 第1步：设置当前渲染器为VRay 2步：在MAXScript Listener里面执行如下代码： r = renderers.current how vr !– more –&amp;gt; 如何获知VRay材质的属性？直接在MAXScript Listener里面执行如下代码: m = VRayMtl() how m  如何获知VRay环境的属性？ 第1步：添加VRayTo">
+<meta property="og:description" content="如何获知VRay渲染器属性？ 第1步：设置当前渲染器为VRay 2步：在MAXScript Listener里面执行如下代码： vr = renderers.current show vr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-23T04:00:50.153Z">
+<meta property="og:updated_time" content="2018-08-03T02:05:37.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="丨脚本丨获取Vray属性">
-<meta name="twitter:description" content="如何获知VRay渲染器属性？ 第1步：设置当前渲染器为VRay 2步：在MAXScript Listener里面执行如下代码： r = renderers.current how vr !– more –&amp;gt; 如何获知VRay材质的属性？直接在MAXScript Listener里面执行如下代码: m = VRayMtl() how m  如何获知VRay环境的属性？ 第1步：添加VRayTo">
+<meta name="twitter:description" content="如何获知VRay渲染器属性？ 第1步：设置当前渲染器为VRay 2步：在MAXScript Listener里面执行如下代码： vr = renderers.current show vr">
 
 
 
@@ -352,12 +352,15 @@
 
       
         <h3 id="如何获知VRay渲染器属性？"><a href="#如何获知VRay渲染器属性？" class="headerlink" title="如何获知VRay渲染器属性？"></a>如何获知VRay渲染器属性？</h3><blockquote>
-<p>第1步：设置当前渲染器为VRay<br> 2步：在MAXScript Listener里面执行如下代码：<br> r = renderers.current<br> how vr<br> !– more –&gt;</p>
+<p>第1步：设置当前渲染器为VRay<br> 2步：在MAXScript Listener里面执行如下代码：<br> vr = renderers.current<br> show vr</p>
+</blockquote>
+ <a id="more"></a>
 <h3 id="如何获知VRay材质的属性？"><a href="#如何获知VRay材质的属性？" class="headerlink" title="如何获知VRay材质的属性？"></a>如何获知VRay材质的属性？</h3><p>直接在MAXScript Listener里面执行如下代码:</p>
-<p>m = VRayMtl()<br> how m</p>
+<blockquote>
+<p>vm = VRayMtl()<br> show m</p>
 </blockquote>
 <h3 id="如何获知VRay环境的属性？"><a href="#如何获知VRay环境的属性？" class="headerlink" title="如何获知VRay环境的属性？"></a>如何获知VRay环境的属性？</h3><blockquote>
-<p>第1步：添加VRayToon为第一个环境(atmosphere)<br> 2步：在MAXScript Listener里面执行如下代码：<br> t = getAtmospheric 1<br> how at</p>
+<p>第1步：添加VRayToon为第一个环境(atmosphere)<br> 第2步：在MAXScript Listener里面执行如下代码：<br>  at = getAtmospheric 1<br> show at</p>
 </blockquote>
 <p>其他属性可以根据以上方式获得！</p>
 <p>附I：在线手册地址：<a href="http://www.cgplusplus.com/online-reference/vray-properties/" target="_blank" rel="noopener">http://www.cgplusplus.com/online-reference/vray-properties/</a></p>
@@ -481,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">80</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

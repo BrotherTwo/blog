@@ -252,6 +252,313 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/用脚本快速生成Vray边纹理材质/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BRO2">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/18/用脚本快速生成Vray边纹理材质/" itemprop="url">丨脚本丨用脚本快速生成Vray边纹理材质</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T23:20:51+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  145
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用脚本生成材质，1是快速，2是能够标准化<br> 这里以生成Vray边纹理材质为例，脚本中做了兼容性处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">fn edgestex =</span><br><span class="line">(</span><br><span class="line">    vr = renderers.current</span><br><span class="line">    case of</span><br><span class="line">    (</span><br><span class="line">        (vr材质 != undefined) : (mat = vr材质())</span><br><span class="line">        (vr_材质 != undefined) : (mat = vr_材质())</span><br><span class="line">        (VRayMtl != undefined) : (mat = VRayMtl())</span><br><span class="line">    )</span><br><span class="line">    mat</span><br><span class="line">    mat.diffuse = color 255 255 255</span><br><span class="line">    case of</span><br><span class="line">    (</span><br><span class="line">        (VR边纹理 != undefined):(mat.texmap_diffuse = VR边纹理())</span><br><span class="line">        (VR_边纹理 != undefined):(mat.texmap_diffuse = VR_边纹理())</span><br><span class="line">        (VRayEdgesTex != undefined):(mat.texmap_diffuse = VRayEdgesTex())</span><br><span class="line">    )</span><br><span class="line">    mat.texmap_diffuse.pixelWidth = 0.5</span><br><span class="line">    mat.texmap_diffuse.edgesColor = color 0 0 0</span><br><span class="line">    vr.options_overrideMtl_on = true</span><br><span class="line">    vr.options_overrideMtl_mtl = mat</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/关于vray物理相机的一些思考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BRO2">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/18/关于vray物理相机的一些思考/" itemprop="url">丨心得丨关于vray物理相机的一些思考</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T23:11:04+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,021
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近研究了一下vray物理相机，这里不具体谈相机的参数设置，而是谈谈使用过程中发现的一些有趣的问题。</p>
+<p>最重要的一个结论是，<strong>vray相机的亮度只有max标准相机的三十分之一。</strong>也就是，如果在场景里打一个vray相机，那么场景的灯光要调亮三十倍左右。这就解答了一个长期困扰我的问题：为什么我们平时用的vraysun的亮度一般都在0.25~0.3之间，因为这个数值乘以30，大约就是1，也就是说，vraysun和vray物理相机其实是配套的——你什么都不用调，他就是一个标准的灯光相机系统。这个系统可以很大程度上解决初学者用奇奇怪怪的方法打出来奇奇怪怪的光感。这是值得推荐的一点。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/18/关于vray物理相机的一些思考/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/用python生成播放列表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1426,324 +1733,16 @@
 
       
         
-          
-            <h3 id="如何获知VRay渲染器属性？"><a href="#如何获知VRay渲染器属性？" class="headerlink" title="如何获知VRay渲染器属性？"></a>如何获知VRay渲染器属性？</h3><blockquote>
-<p>第1步：设置当前渲染器为VRay<br> 2步：在MAXScript Listener里面执行如下代码：<br> r = renderers.current<br> how vr<br> !– more –&gt;</p>
-<h3 id="如何获知VRay材质的属性？"><a href="#如何获知VRay材质的属性？" class="headerlink" title="如何获知VRay材质的属性？"></a>如何获知VRay材质的属性？</h3><p>直接在MAXScript Listener里面执行如下代码:</p>
-<p>m = VRayMtl()<br> how m</p>
+          <h3 id="如何获知VRay渲染器属性？"><a href="#如何获知VRay渲染器属性？" class="headerlink" title="如何获知VRay渲染器属性？"></a>如何获知VRay渲染器属性？</h3><blockquote>
+<p>第1步：设置当前渲染器为VRay<br> 2步：在MAXScript Listener里面执行如下代码：<br> vr = renderers.current<br> show vr</p>
 </blockquote>
-<h3 id="如何获知VRay环境的属性？"><a href="#如何获知VRay环境的属性？" class="headerlink" title="如何获知VRay环境的属性？"></a>如何获知VRay环境的属性？</h3><blockquote>
-<p>第1步：添加VRayToon为第一个环境(atmosphere)<br> 2步：在MAXScript Listener里面执行如下代码：<br> t = getAtmospheric 1<br> how at</p>
-</blockquote>
-<p>其他属性可以根据以上方式获得！</p>
-<p>附I：在线手册地址：<a href="http://www.cgplusplus.com/online-reference/vray-properties/" target="_blank" rel="noopener">http://www.cgplusplus.com/online-reference/vray-properties/</a></p>
-<p>附II：<code>show vr</code> 得到的属性列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br></pre></td><td class="code"><pre><span class="line">.imageSampler_type : integer</span><br><span class="line">.filter_on : boolean</span><br><span class="line">.filter_kernel : maxObject</span><br><span class="line">.filter_size : float</span><br><span class="line">.filter_paramA : float</span><br><span class="line">.filter_paramB : float</span><br><span class="line">.filter_paramC : float</span><br><span class="line">.fixedRate_subdivs : integer</span><br><span class="line">.fixedRate_rand : boolean</span><br><span class="line">.twoLevel_baseSubdivs : integer</span><br><span class="line">.twoLevel_fineSubdivs : integer</span><br><span class="line">.twoLevel_showSamples : boolean</span><br><span class="line">.twoLevel_useDMCSamplerThresh (twoLevel_useMCSamplerThresh) : boolean</span><br><span class="line">.twoLevel_threshold : float</span><br><span class="line">.adaptiveSubdivision_minRate : integer</span><br><span class="line">.adaptiveSubdivision_maxRate : integer</span><br><span class="line">.adaptiveSubdivision_threshold : float</span><br><span class="line">.adaptiveSubdivision_rand : boolean</span><br><span class="line">.adaptiveSubdivision_showSamples : boolean</span><br><span class="line">.imageSampler_outline : boolean</span><br><span class="line">.imageSampler_mtlID : boolean</span><br><span class="line">.imageSampler_normal : boolean</span><br><span class="line">.imageSamper_normal_threshold : float</span><br><span class="line">.imageSampler_zvalue : boolean</span><br><span class="line">.imageSampler_zvalue_threshold : float</span><br><span class="line">.gi_on : boolean</span><br><span class="line">.gi_refractCaustics : boolean</span><br><span class="line">.gi_reflectCaustics : boolean</span><br><span class="line">.gi_primary_type : integer</span><br><span class="line">.gi_primary_multiplier : float</span><br><span class="line">.gi_secondary_type : integer</span><br><span class="line">.gi_secondary_multiplier : float</span><br><span class="line">.gi_saturation : float</span><br><span class="line">.gi_contrast : float</span><br><span class="line">.gi_contrast_base : float</span><br><span class="line">.gi_saveMapsPerFrame : boolean</span><br><span class="line">.gi_irradmap_minRate : integer</span><br><span class="line">.gi_irradmap_maxRate : integer</span><br><span class="line">.gi_irradmap_subdivs : integer</span><br><span class="line">.gi_irradmap_interpSamples : integer</span><br><span class="line">.gi_irradmap_colorThreshold : float</span><br><span class="line">.gi_irradmap_normalThreshold : float</span><br><span class="line">.gi_irradmap_distThreshold : float</span><br><span class="line">.gi_irradmap_showSamples : boolean</span><br><span class="line">.gi_irradmap_showCalcPhase : boolean</span><br><span class="line">.gi_irradmap_showDirectLight : boolean</span><br><span class="line">.gi_irradmap_preset : integer</span><br><span class="line">.adv_irradmap_interpolationType : integer</span><br><span class="line">.adv_irradmap_mode : integer</span><br><span class="line">.adv_irradmap_dontDelete : boolean</span><br><span class="line">.adv_irradmap_loadFileName : filename</span><br><span class="line">.adv_irradmap_saveFileName : filename</span><br><span class="line">.adv_irradmap_calcInterpSamples : integer</span><br><span class="line">.adv_irradmap_useCurrentPassSamples : boolean</span><br><span class="line">.adv_irradmap_autoSave : boolean</span><br><span class="line">.adv_irradmap_autoSaveFileName : filename</span><br><span class="line">.adv_irradmap_switchToSavedMap : boolean</span><br><span class="line">.adv_irradmap_randomize : boolean</span><br><span class="line">.adv_irradmap_lookupType : integer</span><br><span class="line">.adv_irradmap_checkSampleVisibility : boolean</span><br><span class="line">.adv_irradmap_limitSearchRange : boolean</span><br><span class="line">.gi_irradmap_blurGI : float</span><br><span class="line">.gi_irradmap_detail_on (irradmap_detail_on) : boolean</span><br><span class="line">.gi_irradmap_detail_radius (irradmap_detail_radius) : float</span><br><span class="line">.gi_irradmap_detail_subdivsMult (irradmap_detail_subdivsMult) : float</span><br><span class="line">.gi_irradmap_detail_scale (irradmap_detail_scale) : integer</span><br><span class="line">.gi_irradmap_previewMode (irradmap_previewMode) : integer</span><br><span class="line">.gi_irradmap_interpFrames : integer</span><br><span class="line">.caustics_on : boolean</span><br><span class="line">.caustics_searchDist : worldUnits</span><br><span class="line">.caustics_maxPhotons : integer</span><br><span class="line">.caustics_multiplier : float</span><br><span class="line">.caustics_mode : integer</span><br><span class="line">.caustics_dontDelete : boolean</span><br><span class="line">.caustics_loadFileName : filename</span><br><span class="line">.caustics_saveFileName : filename</span><br><span class="line">.casutics_autoSave : boolean</span><br><span class="line">.caustics_autoSaveFileName : filename</span><br><span class="line">.caustics_switchToSavedMap : boolean</span><br><span class="line">.caustics_maxDensity (caustics_maxDens) : worldUnits</span><br><span class="line">.caustics_showCalcPhase : boolean</span><br><span class="line">.environment_gi_on : boolean</span><br><span class="line">.environment_gi_color : RGB color</span><br><span class="line">.environment_gi_color_multiplier : float</span><br><span class="line">.environment_gi_map : texturemap</span><br><span class="line">.environment_gi_map_on : boolean</span><br><span class="line">.environment_rr_on : boolean</span><br><span class="line">.environment_rr_color : RGB color</span><br><span class="line">.environment_rr_color_multiplier : float</span><br><span class="line">.environment_rr_map : texturemap</span><br><span class="line">.environment_rr_map_on : boolean</span><br><span class="line">.environment_refract_on : boolean</span><br><span class="line">.environment_refract_color : RGB color</span><br><span class="line">.environment_refract_color_multiplier : float</span><br><span class="line">.environment_refract_map : texturemap</span><br><span class="line">.environment_refract_map_on : boolean</span><br><span class="line">.gbuffer_channelMask : integer</span><br><span class="line">.colorMapping_type : integer</span><br><span class="line">.colorMapping_darkMult : float</span><br><span class="line">.colorMapping_brightMult : float</span><br><span class="line">.colorMapping_gamma : float</span><br><span class="line">.colorMapping_affectBackground : boolean</span><br><span class="line">.colorMapping_clampOutput : boolean</span><br><span class="line">.colorMapping_clampLevel : float</span><br><span class="line">.colorMapping_subpixel : boolean</span><br><span class="line">.colorMapping_adaptationOnly : boolean</span><br><span class="line">.camera_type : integer</span><br><span class="line">.camera_overrideFOV : boolean</span><br><span class="line">.camera_fov : float</span><br><span class="line">.camera_cyl_height : float</span><br><span class="line">.camera_fish_autoDistance : boolean</span><br><span class="line">.camera_fish_distance : float</span><br><span class="line">.camera_fish_curve : float</span><br><span class="line">.dof_on : boolean</span><br><span class="line">.dof_distance : worldUnits</span><br><span class="line">.dof_getFromCamera : boolean</span><br><span class="line">.dof_shutter : worldUnits</span><br><span class="line">.dof_subdivs : integer</span><br><span class="line">.dof_bias : float</span><br><span class="line">.dof_sides_on : boolean</span><br><span class="line">.dof_sides_num : integer</span><br><span class="line">.dof_sides_rotation : angle</span><br><span class="line">.dof_anisotropy : float</span><br><span class="line">.moblur_on : boolean</span><br><span class="line">.moblur_duration : float</span><br><span class="line">.moblur_intervalCenter : float</span><br><span class="line">.moblur_geomSamples : integer</span><br><span class="line">.moblur_prepassSamples : integer</span><br><span class="line">.moblur_dmc_minSamples (moblur_minSamples) : integer</span><br><span class="line">.moblur_geometryParticles : boolean</span><br><span class="line">.moblur_bias : float</span><br><span class="line">.system_distributedRender : boolean</span><br><span class="line">.system_raycaster_maxLevels : integer</span><br><span class="line">.system_raycaster_minLeafSize : worldUnits</span><br><span class="line">.system_raycaster_faceLevelCoeff : float</span><br><span class="line">.system_raycaster_memLimit : integer</span><br><span class="line">.system_instancedObjects : integer</span><br><span class="line">.system_raycaster_optLevel : integer</span><br><span class="line">.system_region_x : integer</span><br><span class="line">.system_region_y : integer</span><br><span class="line">.system_region_meaning : integer</span><br><span class="line">.system_region_sequence : integer</span><br><span class="line">.system_region_sequence_reverse : integer</span><br><span class="line">.system_previousRender : integer</span><br><span class="line">.system_region_lockSize : boolean</span><br><span class="line">.system_frameStamp_on : boolean</span><br><span class="line">.system_frameStamp_string : string</span><br><span class="line">.system_frameStamp_fullWidth : boolean</span><br><span class="line">.system_frameStamp_justify : integer</span><br><span class="line">.system_workInCameraSpace : boolean</span><br><span class="line">.system_checkForMissingFiles : boolean</span><br><span class="line">.system_optimizedAtmospherics : boolean</span><br><span class="line">.system_lowThreadPriority : boolean</span><br><span class="line">.system_vrayLog_show : boolean</span><br><span class="line">.system_vrayLog_level : integer</span><br><span class="line">.system_vrayLog_file : filename</span><br><span class="line">.system_vrayLog_ccToDebugger : boolean</span><br><span class="line">.system_numThreads : integer</span><br><span class="line">.dmc_timeDependent (mc_lockToPixels) : boolean</span><br><span class="line">.dmc_importanceSampling (mc_importanceSampling) : float</span><br><span class="line">.dmc_earlyTermination_amount (mc_earlyTermination_amount) : float</span><br><span class="line">.dmc_earlyTermination_threshold (mc_earlyTermination_threshold) : float</span><br><span class="line">.dmc_earlyTermination_minSamples (mc_earlyTermination_minSamples) : integer</span><br><span class="line">.dmc_subdivs_mult (mc_subdivs_mult) : float</span><br><span class="line">.dmc_pathSampler_type (mc_pathSampler_type) : integer</span><br><span class="line">.photonMap_bounces : integer</span><br><span class="line">.photonMap_searchDist : worldUnits</span><br><span class="line">.photonMap_autoDist : boolean</span><br><span class="line">.photonMap_maxPhotons : integer</span><br><span class="line">.photonMap_convert : boolean</span><br><span class="line">.photonMap_interpSamples : integer</span><br><span class="line">.photonMap_multiplier : float</span><br><span class="line">.photonMap_convexHullEstimate : boolean</span><br><span class="line">.photonMap_storeDirectLight : boolean</span><br><span class="line">.photonMap_retraceCorners : float</span><br><span class="line">.photonMap_retraceBounces : integer</span><br><span class="line">.photonMap_maxDensity : worldUnits</span><br><span class="line">.photonMap_mode : integer</span><br><span class="line">.photonMap_loadFileName : filename</span><br><span class="line">.photonMap_saveFileName : filename</span><br><span class="line">.photonMap_dontDelete : boolean</span><br><span class="line">.photonMap_autoSave : boolean</span><br><span class="line">.photonMap_autoSaveFileName : filename</span><br><span class="line">.photonMap_switchToSavedMap : boolean</span><br><span class="line">.photonMap_showCalcPhase : boolean</span><br><span class="line">.options_displacement : boolean</span><br><span class="line">.options_lights : boolean</span><br><span class="line">.options_hiddenLights : boolean</span><br><span class="line">.options_shadows : boolean</span><br><span class="line">.options_defaultLights : boolean</span><br><span class="line">.options_reflectionRefraction : boolean</span><br><span class="line">.options_limitDepth : boolean</span><br><span class="line">.options_maxDepth : integer</span><br><span class="line">.options_maps : boolean</span><br><span class="line">.options_filterMaps : boolean</span><br><span class="line">.options_transpMaxLevels : integer</span><br><span class="line">.options_transpCutoff : float</span><br><span class="line">.options_dontRenderImage : boolean</span><br><span class="line">.options_overrideMtl_on : boolean</span><br><span class="line">.options_overrideMtl_mtl : material</span><br><span class="line">.options_showGIOnly : boolean</span><br><span class="line">.options_ray_bias : float</span><br><span class="line">.options_glossyEffects : boolean</span><br><span class="line">.options_geom_backfaceCull : boolean</span><br><span class="line">.options_mtl_filterMaps_indirect : boolean</span><br><span class="line">.options_useLegacyModels : boolean</span><br><span class="line">.options_use3dsMaxPhotometricUnits : boolean</span><br><span class="line">.output_on : boolean</span><br><span class="line">.output_width : integer</span><br><span class="line">.output_height : integer</span><br><span class="line">.output_aspect : float</span><br><span class="line">.output_fileOnly : boolean</span><br><span class="line">.output_saveFile : boolean</span><br><span class="line">.output_fileName : string</span><br><span class="line">.output_saveRawFile : boolean</span><br><span class="line">.output_rawFileName : string</span><br><span class="line">.output_useram : boolean</span><br><span class="line">.output_genpreview (output_genrpeview) : boolean</span><br><span class="line">.output_splitgbuffer : boolean</span><br><span class="line">.output_splitfilename : string</span><br><span class="line">.output_splitbitmap : bitmap</span><br><span class="line">.output_getsetsfrommax : boolean</span><br><span class="line">.output_splitRGB : boolean</span><br><span class="line">.output_splitAlpha : boolean</span><br><span class="line">.output_renderType : integer</span><br><span class="line">.output_regxmin : integer</span><br><span class="line">.output_regxmax : integer</span><br><span class="line">.output_regymin : integer</span><br><span class="line">.output_regymax : integer</span><br><span class="line">.output_force32bit_3dsmax_vfb : boolean</span><br><span class="line">.output_rawExrUseHalf : boolean</span><br><span class="line">.displacement_overrideMax : boolean</span><br><span class="line">.displacement_edgeLength : float</span><br><span class="line">.displacement_viewDependent : boolean</span><br><span class="line">.displacement_maxSubdivs : integer</span><br><span class="line">.displacement_tightBounds : boolean</span><br><span class="line">.displacement_amount : float</span><br><span class="line">.displacement_relative : boolean</span><br><span class="line">.dmcgi_subdivs (mcgi_subdivs) : integer</span><br><span class="line">.dmcgi_depth (mcgi_depth) : integer</span><br><span class="line">.lightcache_subdivs : integer</span><br><span class="line">.lightcache_sampleSize : float</span><br><span class="line">.lightcache_filter_type : integer</span><br><span class="line">.lightcache_filter_size : float</span><br><span class="line">.lightcache_bounces : integer</span><br><span class="line">.lightcache_showCalcPhase : integer</span><br><span class="line">.lightcache_storeDirectLight : integer</span><br><span class="line">.lightcache_scale : integer</span><br><span class="line">.lightcache_mode : integer</span><br><span class="line">.lightcache_loadFileName : filename</span><br><span class="line">.lightcache_saveFileName : filename</span><br><span class="line">.lightcache_interpSamples : integer</span><br><span class="line">.lightcache_prefilter_on : boolean</span><br><span class="line">.lightcache_prefilter_samples : integer</span><br><span class="line">.lightcache_dontDelete : boolean</span><br><span class="line">.lightcache_autoSave : boolean</span><br><span class="line">.lightcache_autoSaveFileName : filename</span><br><span class="line">.lightcache_switchToSavedMap : boolean</span><br><span class="line">.lightcache_useForGlossyRays : boolean</span><br><span class="line">.lightcache_numPasses : integer</span><br><span class="line">.lightcache_adaptiveTracing : boolean</span><br><span class="line">.lightcache_adaptiveTracing_dirsOnly (lightcahe_adaptiveTracing_dirsOnly) : boolean</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/切换控制面板/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsh_python@foxmail.com">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BRO2">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/18/切换控制面板/" itemprop="url">丨脚本丨切换控制面板</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T22:11:43+08:00">
-                2018-01-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  123
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用以下方法用于获取或设定激活的命令面板：</p>
-<pre><code>setCommandPanelTaskMode [mode:]&lt;panel_name&gt;
-</code></pre><p>将指定的命令面板设置为激活。有效 panel_name 值包括：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#create -- Create Panel</span><br><span class="line">#modify -- Modify Panel </span><br><span class="line">#hierarchy -- Hierarchy Panel </span><br><span class="line">#motion -- Motion Panel </span><br><span class="line">#display -- Display Panel </span><br><span class="line">#utility -- Utility Panel</span><br></pre></td></tr></table></figure></p>
-<p><code>SetCommandPanelTaskMode</code> 语法修改在3ds Max 7中，以便作为模式关键字参数，或只需给方法的参数可以指定要切换到的面板名称。<br>以下表达式相等：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setCommandPanelTaskMode #modify</span><br><span class="line">setCommandPanelTaskMode mode:#modify</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/清除空图层/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lsh_python@foxmail.com">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BRO2">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/18/清除空图层/" itemprop="url">丨脚本丨清除空图层</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T21:48:53+08:00">
-                2018-01-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  70
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(</span><br><span class="line">	_defaultlayer = layerManager.getLayer 0</span><br><span class="line">	_defaultlayer.current = true</span><br><span class="line"></span><br><span class="line">try</span><br><span class="line">(	</span><br><span class="line">	_total_layers = layerManager.count - 1</span><br><span class="line">	_layercount = #()</span><br><span class="line">	_layercount = for i = 1 to _total_layers collect i</span><br><span class="line">	_revlayers = #()</span><br><span class="line">	for i in _layercount.count to 1 by -1 do append _revlayers _layercount[i]</span><br><span class="line"></span><br><span class="line">	for j in _revlayers do</span><br><span class="line">	(</span><br><span class="line">		_getlayer = layerManager.getlayer j</span><br><span class="line">		LayerManager.deleteLayerByName _getlayer.name</span><br><span class="line">	)		</span><br><span class="line">)</span><br><span class="line">catch()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/18/获取Vray属性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1827,7 +1826,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">80</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
