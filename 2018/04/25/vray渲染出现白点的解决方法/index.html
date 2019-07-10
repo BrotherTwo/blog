@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="前段时间做一个室内的镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。">
+<meta name="description" content="前段时间做一个室内镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vray渲染出现白点的解决方法">
 <meta property="og:url" content="http://yoursite.com/2018/04/25/vray渲染出现白点的解决方法/index.html">
 <meta property="og:site_name" content="BRO2">
-<meta property="og:description" content="前段时间做一个室内的镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。">
+<meta property="og:description" content="前段时间做一个室内镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T15:40:32.667Z">
+<meta property="og:updated_time" content="2019-07-10T14:53:27.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vray渲染出现白点的解决方法">
-<meta name="twitter:description" content="前段时间做一个室内的镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。">
+<meta name="twitter:description" content="前段时间做一个室内镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。">
 
 
 
@@ -313,7 +313,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  256
+                  322
                 </span>
               
 
@@ -350,7 +350,9 @@
       
 
       
-        <p>前段时间做一个室内的镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。<br><a id="more"></a><br>那有没有可能是场景的灯光不够？但是灯光不够的话只会出现黑斑和噪点，不会出现白点啊。死马当活马医，我在场景下面很远的地方打了一个泛光灯，没有开启衰减和阴影，当作补光，但是白班依旧存在。尝试了需多方法，都不启用，而且场景渲染速度非常慢。<br>这时候我突然想起以前遇到过这样的问题，我照着之前的方法，将整个场景的材质转换为vray材质之后，白点消失，而且渲染速度变得正常。<br>可以确定，这是vray与标准材质的兼容性问题。出现这个问题的vray版本是3.0/3.4，其他版本没有测试</p>
+        <p>前段时间做一个室内镜头，渲染过程中发现画面中出现一些白色的斑点，我第一感觉是没有开启钳制输出，但是实际上已经开启了。<br><a id="more"></a><br>那有没有可能是场景的光子不够？但是光子不够的话只会出现黑斑和噪点，不会出现白点啊。死马当活马医，我在场景下面很远的地方打了一个泛光灯，没有开启衰减和阴影，当作补光，但是白斑依旧存在。尝试了需多方法，都不管用，而且场景渲染速度非常慢。<br>这时候我突然想起以前遇到过这样的问题，将整个场景的材质转换为vray材质之后，白点消失，而且渲染速度变得正常。<br>可以确定，这是vray与标准材质的兼容性问题。出现这个问题的vray版本是3.0/3.4，其他版本没有测试</p>
+<p>–更新</p>
+<p>找到了这个问题的根本原因：vray3.0以后，对系统的自发光材质支持的并不好，将自发光材质转换成vray灯光材质可以解决。一定要使用自发光材质的话，把物体的接受GI，产生GI关掉</p>
 
       
     </div>
@@ -525,7 +527,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

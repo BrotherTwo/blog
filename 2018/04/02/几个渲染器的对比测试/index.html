@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-corona加光效.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-FS.jpg">
 <meta property="og:image" content="http://blog-1255960341.picsh.myqcloud.com/L-indigo.jpg">
-<meta property="og:updated_time" content="2018-04-25T16:06:39.422Z">
+<meta property="og:updated_time" content="2019-06-12T16:12:19.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几个渲染器的简单测试">
 <meta name="twitter:description" content="测试了几个渲染器，同样的场景，相机，渲染面板，材质都使用默认设置（indigo有些微调，但不影响比较）。测试的机器是图形卡，虽然也属于N卡，但是很多GPU渲染器貌似都不支持，也从另外一个侧面印证了那个观点，3000以下的图形卡就是渣">
@@ -320,7 +320,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,273
+                  1,269
                 </span>
               
 
@@ -362,8 +362,8 @@
 <h3 id="Vray"><a href="#Vray" class="headerlink" title="Vray"></a>Vray</h3><p>首先测试的就是Vray，Vray是国内建筑动画和效果图领域使用最为广泛的渲染器，有大量的教程，模型和工作流程可以直接使用，每个大版本之间的渲染速度都有百分之三四十的提升，但是慢慢的被其他渲染器追赶甚至超越，最近这几年chaosgrup的动作比较大，收购corona，重写渲染器核心，开发gpu渲染，明显是被一帮小弟打得乱了阵脚。优势是稳定,且对大场景支持良好。</p>
 <p>这是没有开启光效的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-vray.jpg" alt=""></p>
 <p>这是开启光效以后的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-vray加光效.jpg" alt=""></p>
-<p>微调了一些光效参数，默认效果根本无法看。但即使调整过，也是所有效果中最烂的，假的一比</p>
-<h3 id="corona"><a href="#corona" class="headerlink" title="corona"></a>corona</h3><p>可以看作vray的简化版，现阶段在国内效果图行业发展的不错，速度和质量都比vray好一丢丢，优势是简单，官方的说法是，不去动那些参数就是最好的效果…….有一个强大的降噪模式，而且在渲染完成后还能调整灯光，这些功能被chaosgroup收购以后集成到了vray新版本中。另外个人在使用过程中发现它的相机特别好用，虽然参数也挺多，但是我用到的就一个–根据画面自动曝光，勾选以后再也不用管什么狗屁光圈快门ios</p>
+<p>微调了一些光效参数，默认效果根本无法看。但即使调整过，也是所有效果中最差的</p>
+<h3 id="corona"><a href="#corona" class="headerlink" title="corona"></a>corona</h3><p>可以看作vray的简化版，现阶段在国内效果图行业发展的不错，速度和质量都比vray好一丢丢，优势是简单，官方的说法是，不去动那些参数就是最好的效果…….有一个强大的降噪模式，而且在渲染完成后还能调整灯光，这些功能被chaosgroup收购以后集成到了vray新版本中。另外个人在使用过程中发现它的相机特别好用，虽然参数也挺多，但是我用到的就一个–根据画面自动曝光，勾选以后再也不用管光圈快门ios这些东西</p>
 <p>这是未开启光效的效果，和vray半斤八两<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-corona.jpg" alt=""><br>这是开启光效后的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-corona加光效.jpg" alt=""><br>比vray好了很多，但是辉光不太自然，光线跟踪渲染器的水平大概也就这样了吧</p>
 <h3 id="FS"><a href="#FS" class="headerlink" title="FS"></a>FS</h3><p>基于真实光照的物理渲染器，国内有小范围使用，我拿他来做测试是因为他虽然虽然没能支持公司的图形卡，但是可以用cpu渲染，属于通吃的渲染器，用cpu渲染也很快，参数比vray少的多，但是材质类型和通道也很少，这在某些时候可能不构成劣势，比如做效果图和快速教学<br>这是默认参数渲染出来的效果<br><img src="http://blog-1255960341.picsh.myqcloud.com/L-FS.jpg" alt=""><br>这就是物理渲染器的强大之处，这么多年，终于见到了梦寐以求的霓虹灯</p>
 <h3 id="indigo"><a href="#indigo" class="headerlink" title="indigo"></a>indigo</h3><p>在国内非常小众的一款渲染器，我使用的是它的独立版本，材质调节界面非常难用，就换到max版本操作，因为没有找到场景转换工具，所以现学了一下它的材质编辑器，它的标准材质有点像max的标准材质，但是要复杂的多，凹凸贴图的效果和强度让人印象深刻….。渲染面板非常简单，甚至可以用简陋来形容，大部分还是与渲染效果无关的选项。也有一个类似corona的基于图片的曝光方式，但是是集成在渲染面板中</p>
@@ -569,7 +569,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
