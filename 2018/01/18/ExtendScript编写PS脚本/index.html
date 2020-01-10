@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用，。总体体验也跟js一样：难用。 今天照着官方手册写了一个基本过得去的GUI，逻辑部分接下来再写吧：12345678910">
+<meta name="description" content="PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用。总体体验也跟js一样：难用。 今天照着官方手册写了一个基本过得去的GUI，逻辑部分接下来再写吧：123456789101">
 <meta name="keywords" content="extendscript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ExtendScript编写PS脚本">
 <meta property="og:url" content="http://yoursite.com/2018/01/18/ExtendScript编写PS脚本/index.html">
 <meta property="og:site_name" content="BRO2">
-<meta property="og:description" content="PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用，。总体体验也跟js一样：难用。 今天照着官方手册写了一个基本过得去的GUI，逻辑部分接下来再写吧：12345678910">
+<meta property="og:description" content="PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用。总体体验也跟js一样：难用。 今天照着官方手册写了一个基本过得去的GUI，逻辑部分接下来再写吧：123456789101">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-06T14:36:19.375Z">
+<meta property="og:updated_time" content="2020-01-09T23:06:52.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ExtendScript编写PS脚本">
-<meta name="twitter:description" content="PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用，。总体体验也跟js一样：难用。 今天照着官方手册写了一个基本过得去的GUI，逻辑部分接下来再写吧：12345678910">
+<meta name="twitter:description" content="PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用。总体体验也跟js一样：难用。 今天照着官方手册写了一个基本过得去的GUI，逻辑部分接下来再写吧：123456789101">
 
 
 
@@ -351,7 +351,7 @@
       
 
       
-        <p>PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。<br>PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用，。总体体验也跟js一样：难用。</p>
+        <p>PS里保存图片，每次都要打开另存为界面选择jpg格式很蛋疼，虽然有动作，但是只能把图片存到固定目录，每次都要修改，不是太理想，所以打算写一个ps脚本。<br>PS使用的语言是adobe公司的通用脚本语言ExtendScript，基于JavaScript封装，可以在Adobe全家桶中使用。总体体验也跟js一样：难用。</p>
 <p>今天照着官方手册写了一个基本过得去的GUI，逻辑部分接下来再写吧：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> win = <span class="keyword">new</span> Window(<span class="string">'dialog'</span>, <span class="string">'Alert Box Builder'</span>);</span><br><span class="line">win.btnPanel = win.add(<span class="string">'panel'</span>, <span class="literal">undefined</span>, <span class="string">'保存模式'</span>);</span><br><span class="line">win.btnPanel.save = win.btnPanel.add(<span class="string">'radiobutton'</span>,<span class="literal">undefined</span>, <span class="string">'加存'</span>);</span><br><span class="line">win.btnPanel.cover = win.btnPanel.add(<span class="string">'radiobutton'</span>,<span class="literal">undefined</span>, <span class="string">'覆盖'</span>);</span><br><span class="line">win.btnPanel.saveAs = win.btnPanel.add(<span class="string">'radiobutton'</span>,<span class="literal">undefined</span>, <span class="string">'另存'</span>);</span><br><span class="line">win.btnPanel.save.value = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">win.typePanel = win.add(<span class="string">'panel'</span>, <span class="literal">undefined</span>, <span class="string">'格式'</span>);</span><br><span class="line">format_li = win.typePanel.add(<span class="string">"DropDownList"</span>, [<span class="number">40</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">70</span>]);</span><br><span class="line"><span class="keyword">var</span> item = format_li.add (<span class="string">'item'</span>, <span class="string">'jpg'</span>);</span><br><span class="line">item = format_li.add (<span class="string">'item'</span>, <span class="string">'png'</span>);</span><br><span class="line">item = format_li.add (<span class="string">'item'</span>, <span class="string">'tga'</span>);</span><br><span class="line">format_li.selection = format_li.items[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">win.typePanel.exp= win.typePanel.add(<span class="string">"button"</span>, <span class="literal">undefined</span>, <span class="string">"保存"</span>);</span><br><span class="line"></span><br><span class="line">win.show();</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
       
@@ -467,7 +467,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -533,7 +533,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

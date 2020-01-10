@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，瞬间搞定。12345678910for a in selection do addmodifier a (Uvwmap())for a in selection do (	a.uvw_map.maptype=4	a.uvw_map.length=500	a.uvw_map.width=50">
+<meta name="description" content="做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，很快就搞定。12345678910for a in selection do addmodifier a (Uvwmap())for a in selection do (	a.uvw_map.maptype=4	a.uvw_map.length=500	a.uvw_map.width=5">
 <meta name="keywords" content="maxscript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="批量添加UVW修改器">
 <meta property="og:url" content="http://yoursite.com/2018/01/18/批量添加UVW修改器/index.html">
 <meta property="og:site_name" content="BRO2">
-<meta property="og:description" content="做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，瞬间搞定。12345678910for a in selection do addmodifier a (Uvwmap())for a in selection do (	a.uvw_map.maptype=4	a.uvw_map.length=500	a.uvw_map.width=50">
+<meta property="og:description" content="做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，很快就搞定。12345678910for a in selection do addmodifier a (Uvwmap())for a in selection do (	a.uvw_map.maptype=4	a.uvw_map.length=500	a.uvw_map.width=5">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-03T08:13:11.388Z">
+<meta property="og:updated_time" content="2020-01-09T23:25:43.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="批量添加UVW修改器">
-<meta name="twitter:description" content="做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，瞬间搞定。12345678910for a in selection do addmodifier a (Uvwmap())for a in selection do (	a.uvw_map.maptype=4	a.uvw_map.length=500	a.uvw_map.width=50">
+<meta name="twitter:description" content="做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，很快就搞定。12345678910for a in selection do addmodifier a (Uvwmap())for a in selection do (	a.uvw_map.maptype=4	a.uvw_map.length=500	a.uvw_map.width=5">
 
 
 
@@ -314,7 +314,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  238
+                  239
                 </span>
               
 
@@ -351,7 +351,7 @@
       
 
       
-        <p> 做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，瞬间搞定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for a in selection do addmodifier a (Uvwmap())</span><br><span class="line">for a in selection do (</span><br><span class="line">	a.uvw_map.maptype=4</span><br><span class="line">	a.uvw_map.length=500</span><br><span class="line">	a.uvw_map.width=500</span><br><span class="line">	a.uvw_map.height=700</span><br><span class="line">	a.uvw_map.mapChannel=2</span><br><span class="line">	--塌陷为mesh，慎用</span><br><span class="line">	convertToMesh a </span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+        <p> 做一个夜景场景，需要给配楼添加uvw贴图，选多了就卡住，使用脚本处理，添加修改器，修改参数，转换为mesh，很快就搞定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for a in selection do addmodifier a (Uvwmap())</span><br><span class="line">for a in selection do (</span><br><span class="line">	a.uvw_map.maptype=4</span><br><span class="line">	a.uvw_map.length=500</span><br><span class="line">	a.uvw_map.width=500</span><br><span class="line">	a.uvw_map.height=700</span><br><span class="line">	a.uvw_map.mapChannel=2</span><br><span class="line">	--塌陷为mesh，慎用</span><br><span class="line">	convertToMesh a </span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
 <p>—使用脚本前先打开组再在Geomtry过滤器下全选物体</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>更新：<br>–上面提到使用脚本前要打开组，是因为<code>addmodifier</code>函数无法给子对象添加修改器，而且还会报错。如果要给子物体也添加修改器，可以使用函数<code>modPanel.addModToSelection()</code><br>–<code>convertToMesh a</code>并不是最好的方法，因为有时候物体并不是mesh，可能是样条线，多边形，或者NURBS曲面，这时候可以使用<code>collapseStack a</code> 他能自动把修改器塌陷成物体的基准对象 </p>
 
@@ -477,7 +477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +559,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
