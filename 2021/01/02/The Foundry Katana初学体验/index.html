@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="看了一个Kantana的入门教程，又看了一些特性介绍，大体说一下感受：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Foundry Katana初学体验">
+<meta property="og:url" content="http://yoursite.com/2021/01/02/The Foundry Katana初学体验/index.html">
+<meta property="og:site_name" content="BRO2">
+<meta property="og:description" content="看了一个Kantana的入门教程，又看了一些特性介绍，大体说一下感受：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-01-06T16:43:19.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Foundry Katana初学体验">
+<meta name="twitter:description" content="看了一个Kantana的入门教程，又看了一些特性介绍，大体说一下感受：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/01/02/The Foundry Katana初学体验/"/>
+
+
+
+
+
+  <title>The Foundry Katana初学体验 | BRO2</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BRO2</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/02/The Foundry Katana初学体验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lsh_python@foxmail.com">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://blog-1255960341.picsh.myqcloud.com/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BRO2">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">The Foundry Katana初学体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-02T18:43:27+08:00">
+                2021-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,236
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>看了一个Kantana的入门教程，又看了一些特性介绍，大体说一下感受：</p>
+<a id="more"></a>
+<p>1.Katana属于布光软件，虽然有一定的建模合成能力，但都不是强项，它的布光功能跟其他软件也没什么两样，优势是由节点带来的标准化和可迁移性</p>
+<p>2.这软件为团队协作而生，制作灯光环境模板然后分发复用的思路从CG行业诞生之初就有，各个软件也有自己的操作方法，而Katana是将这种思想贯彻的最彻底的一例，完全脱离模型生产软件，只专注于打光</p>
+<p>3.完全脱离模型生产软件的好处是可以让各个生产部门选择最适合的生产工具，比如houdini，maya，zb生成的模型，动画和特效，最终汇总到katana里做渲染，而不用为某个软件没有某个渲染功能头疼</p>
+<p>4.最突出的优势是将灯光，材质流程节点化，可以统一的更新某个或某一组节点，标准化是多人协作的核心</p>
+<p>5.还是多人协作，在渲染环节，如果需要TD的参与，往往都需要写专门的插件，更新和维护都很麻烦，如果遇到有人使用不同的软件，不同的版本，那么维护起来简直是噩梦。而Katana里，TD可以专门制作一个工具节点，艺术家完全不用考虑这个节点的工作原理，只要把这个节点连接到需要的地方就行。</p>
+<p>6.根据介绍，Kantana可以在几秒内打开几十G的场景，我猜想它并没有真正打开模型，只是打开了节点图，当你真正需要显示模型的时候，它才会加载，全部打开了，该卡还是卡，这个功能算是做了全局代理，其实算不上什么优势</p>
+<p>  多说一点，kantana只是记录了模型的坐标，如果发生复制也只是多了一个节点，所有本身文件不大，这和clasrisse非常相似，但是clasrisse不是节点式，操作起来比katana方便也快很多（操作效率并不等于流程效率，论流程节点软件有天生的优势）</p>
+<p>7.通用化和个性化：在同一个场景里，可以将通用节点和个性节点分开，在需要时连接不同节点即可。比如控制不同角度的曝光，时段甚至是切换材质，渲染器等，这在正常软件里，基本就要另存一个场景了，在katana里只需要更改一下节点间的连接</p>
+<p>8.说了这么多优点，其实也有缺点，在观看演示的时候就发现操作非常繁琐，正常软件里两三秒钟搞定的事，在这里面可能需要一分钟，把底层暴露出来虽然自由度高，但是想实现一个简单的功能也需要很多步骤，这算是节点软件的通病。</p>
+<p>9.同样是通病，学习成本（其实是记忆成本）太高，因为没有按钮的封装，所有效果都是节点，你需要了解每一个节点的用途，早期版本的材质节点简直是噩梦，好在后来改成类似oc的形式。</p>
+<p>10.命名：这一点是最多人诟病的地方，在katana中模型和材质的命名必须唯一，这对于国内大部分团队来说简直要了老命，多年积累的数字资产命名相当混乱，很多是重名的，而在katana中如果有重名，模型不会显示，材质无法渲染，光这一点就能劝退99%的团队，然而这也是使用katana的必要条件，其实很容易理解，只要名字唯一，那么不管怎么修改，katana的加载都不会出问题</p>
+<p>11.节点操作相对于已经习惯常规CG软件的渲染师来说上手还是太难了</p>
+<hr>
+<p>总结：这软件就是屠龙刀，对于大中型的团队，需要处理成百上千个镜头，有时还需要TD参与的时候，这个软件的威力就显现出来了，其生产效率不是正常软件可以比拟的，同时上面所说的缺点也全部变成优点。相反对于没有标准资产的小团队，镜头少而且场景复用率低，这个工具就显得繁琐又低效，还容易出错，这应该是kantana没有流行起来的原因（以为我猜想，国内用这东西的不超过千人，真正的屠龙术2333，真想参与到大公司的流程里，还是学houdini或者nuke靠谱一点，起码公司破产了不至于饿死）。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/02/脚本：selectSameMaterial/" rel="next" title="脚本：selectSameMaterial">
+                <i class="fa fa-chevron-left"></i> 脚本：selectSameMaterial
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/07/电影感渲染的秘密/" rel="prev" title="电影感渲染的秘密">
+                电影感渲染的秘密 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://blog-1255960341.picsh.myqcloud.com/header.jpg"
+                alt="lsh_python@foxmail.com" />
+            
+              <p class="site-author-name" itemprop="name">lsh_python@foxmail.com</p>
+              <p class="site-description motion-element" itemprop="description">人生如逆旅，我亦是行人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BrotherTwo" target="_blank" title="github">
+                      
+                        <i class="fa fa-fw fa-globe"></i>github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/chi-yan-xie-23/activities" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lsh_python@foxmail.com</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
